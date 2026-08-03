@@ -122,10 +122,13 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 .cycle-copy h2{font-size:clamp(1.5rem,3.8vw,2.6rem);text-shadow:0 2px 26px rgba(0,0,0,.85)}
 .cycle-sub{font-size:clamp(.92rem,1.8vw,1.1rem);color:rgba(240,246,249,.88);margin-top:.7rem;text-shadow:0 1px 16px rgba(0,0,0,.9)}
 @media (max-width:700px){.cycle-copy{position:static;transform:none;width:92%;margin:0 auto;padding:1.3rem 0 1.1rem}}
-.cycle-beats{position:absolute;left:0;right:0;bottom:4.5%;z-index:2;display:flex;justify-content:center;gap:clamp(1.2rem,6vw,7rem);flex-wrap:nowrap;padding:0 4%}
-.cycle-beats .beat{flex:1 1 0}
-@media (max-width:860px){.cycle-beats{position:static;flex-wrap:wrap;padding:1.6rem 5% 1.9rem}.cycle-beats .beat{flex:none}}
-.beat{font-size:clamp(.85rem,1.8vw,1.05rem);font-weight:500;max-width:15rem;animation:beatGlow 8s ease-in-out infinite;text-shadow:0 1px 14px rgba(0,0,0,.92)}
+.cycle-beats{position:absolute;inset:0;z-index:2;pointer-events:none}
+.cycle-beats .beat{position:absolute;transform:translate(-50%,-50%);width:clamp(8.5rem,15vw,12rem)}
+.cb1{left:50.4%;top:7%}
+.cb2{left:67.5%;top:30%}
+.cb3{left:33.3%;top:30%}
+@media (max-width:860px){.cycle-beats{position:static;display:flex;justify-content:center;flex-wrap:wrap;gap:1.2rem;padding:1.6rem 5% 1.9rem}.cycle-beats .beat{position:static;transform:none}}
+.beat{font-size:clamp(.78rem,1.5vw,.98rem);line-height:1.35;font-weight:500;animation:beatGlow 8s ease-in-out infinite;text-shadow:0 1px 14px rgba(0,0,0,.92)}
 .cb2{animation-delay:2.667s}
 .cb3{animation-delay:5.333s}
 @keyframes beatGlow{0%,2%{filter:brightness(1.55)}10%,100%{filter:brightness(1)}}
@@ -323,9 +326,9 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
             <filter id="ct-core" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation=".7"/></filter>
           </defs>
           <g class="orbit2">
-            <circle cx="100" cy="100" r="87" fill="none" stroke="#fbcd66" stroke-width="10" stroke-linecap="round" pathLength="100" stroke-dasharray="26 74" transform="rotate(-90 100 100)" opacity=".38" filter="url(#ct-soft)"/>
-            <circle cx="100" cy="100" r="86.5" fill="none" stroke="#ffdf9e" stroke-width="4" stroke-linecap="round" pathLength="100" stroke-dasharray="22 78" transform="rotate(-88 100 100)" opacity=".6" filter="url(#ct-mid)"/>
-            <circle cx="100" cy="100" r="86" fill="none" stroke="#fff7e0" stroke-width="1.6" stroke-linecap="round" pathLength="100" stroke-dasharray="17 83" transform="rotate(-86 100 100)" opacity=".95" filter="url(#ct-core)"/>
+            <circle cx="100" cy="100" r="88" fill="none" stroke="#fbcd66" stroke-width="16" stroke-linecap="round" pathLength="100" stroke-dasharray="28 72" transform="rotate(-91 100 100)" opacity=".55" filter="url(#ct-soft)"/>
+            <circle cx="100" cy="100" r="87" fill="none" stroke="#ffdf9e" stroke-width="6" stroke-linecap="round" pathLength="100" stroke-dasharray="23 77" transform="rotate(-88 100 100)" opacity=".85" filter="url(#ct-mid)"/>
+            <circle cx="100" cy="100" r="86" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" pathLength="100" stroke-dasharray="17 83" transform="rotate(-86 100 100)" opacity="1" filter="url(#ct-core)"/>
           </g>
         </svg>
       </div>
