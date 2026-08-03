@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience Totality · Pulse & Unify</title>
+<meta name="description" content="Every pulse awakens your power. Live transmission August 12. Integration ceremony the day after. Set one intention and let every pulse return you to it.">
+<meta property="og:title" content="Experience Totality · Pulse & Unify">
+<meta property="og:description" content="Watch the eclipse ceremony live from Iceland. Set one intention. Let every gentle pulse of your ring return you to it. $100 off with the eclipse offer.">
+<!-- TODO (dev owner TBD): og:image must become an ABSOLUTE https URL at deploy or Facebook/iMessage previews will not show the image -->
+<meta property="og:image" content="assets/og.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23fbcd66'/%3E%3Ccircle cx='16' cy='16' r='10.5' fill='%2317171d'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --volcanic:#17171d;
+  --midnight:#0d1030;
+  --glacier:#f0f6f9;
+  --nebula:#492991;
+  --deepblue:#1330a5;
+  --aurora:#f42789;
+  --solar:#fbcd66;
+  --corona:#ff8a3d;
+  --teal:#00b99b;
+  --dim:rgba(240,246,249,.66);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--volcanic);color:var(--glacier);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{max-width:100%;height:auto;display:block}
+
+/* ---------- buttons ---------- */
+.cta{display:inline-block;background:linear-gradient(135deg,var(--solar),var(--corona));color:#221302;font-weight:700;font-size:1.05rem;letter-spacing:.01em;padding:1rem 2.6rem;border-radius:999px;text-decoration:none;box-shadow:0 0 32px rgba(251,205,102,.35);transition:transform .2s ease,box-shadow .2s ease}
+.cta:hover{transform:translateY(-2px);box-shadow:0 0 48px rgba(251,205,102,.55)}
+.cta:active{transform:translateY(0)}
+.cta,.eclipse-mark{animation:breathe 8s ease-in-out infinite}
+@keyframes breathe{0%,100%{filter:brightness(1)}50%{filter:brightness(1.12)}}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--solar);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+.chip{display:inline-flex;align-items:center;gap:.45rem;font-size:.88rem;color:var(--teal);border:1px solid rgba(0,185,155,.4);background:rgba(0,185,155,.08);border-radius:999px;padding:.4rem 1rem}
+.cta-timer{display:inline-block;margin-left:.55rem;padding:.18rem .7rem;border-radius:999px;background:rgba(23,23,29,.22);font-size:.88rem;font-variant-numeric:tabular-nums;vertical-align:1px}
+.cta-timer:empty{display:none}
+.chip svg{flex:none}
+.icn{width:22px;height:22px;color:var(--solar);display:block;margin-bottom:.6rem}
+.beat .icn{margin:0 auto .55rem}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate}
+.hero video,.hero .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,23,29,.3) 0%,rgba(23,23,29,.12) 40%,rgba(23,23,29,.84) 88%,var(--volcanic) 100%);z-index:-1}
+.hero-inner{width:min(1080px,92%);margin:auto;text-align:center;padding:2rem 0}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--glacier);opacity:.85;margin-bottom:1.1rem}
+.lockup{display:flex;align-items:center;justify-content:center;gap:clamp(.8rem,2.4vw,1.3rem);margin-bottom:1.6rem}
+.lk-brand{display:inline-flex;align-items:center;gap:.6rem;font-weight:700;font-size:clamp(1.05rem,2.4vw,1.45rem);letter-spacing:.32em;text-indent:.32em;color:var(--glacier);text-shadow:0 1px 24px rgba(13,16,48,.7)}
+.lk-brand svg{width:clamp(22px,2.6vw,28px);height:auto;flex:none;filter:drop-shadow(0 0 7px rgba(251,205,102,.55))}
+.lk-x{color:var(--solar);font-size:clamp(1rem,2.2vw,1.35rem);font-weight:400;opacity:.9}
+.hero h1{font-size:clamp(2.5rem,6.5vw,4.6rem);font-weight:700;letter-spacing:-.02em;line-height:1.05;text-shadow:0 2px 40px rgba(13,16,48,.6)}
+.hero .sub{font-size:clamp(1.05rem,2.2vw,1.35rem);color:var(--glacier);opacity:.92;margin:1.3rem auto 2.2rem;max-width:34ch;font-weight:400}
+.hero .cta-row{display:flex;flex-direction:column;align-items:center;gap:.75rem;margin-bottom:2.6rem}
+
+/* countdown strip */
+.strip{border-top:1px solid rgba(240,246,249,.16);backdrop-filter:blur(6px);background:rgba(13,16,48,.35)}
+.strip-inner{width:min(1080px,92%);margin:0 auto;display:flex;justify-content:center;align-items:baseline;gap:1rem;padding:1.05rem 0;flex-wrap:wrap;text-align:center}
+.strip .n{font-size:1.3rem;font-weight:700;color:var(--solar);font-variant-numeric:tabular-nums}
+.strip .l{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+
+/* ---------- sections ---------- */
+section{position:relative}
+.wrap{width:min(1080px,92%);margin:0 auto}
+.block{padding:clamp(4.5rem,10vw,7.5rem) 0}
+h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;line-height:1.12}
+.lead{font-size:clamp(1.02rem,2vw,1.2rem);color:var(--dim);max-width:46ch}
+
+/* founder invitation */
+.invite.block{padding-top:clamp(2.2rem,4.5vw,3.8rem)}
+.invite-card{max-width:920px;margin:0 auto;position:relative}
+.invite-card img{width:100%}
+.play{position:absolute;left:63%;top:42%;transform:translate(-50%,-50%);width:clamp(62px,8.5vw,84px);aspect-ratio:1;border-radius:50%;border:none;background:linear-gradient(135deg,var(--solar),var(--corona));color:#221302;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 0 42px rgba(251,205,102,.55);animation:breathe 8s ease-in-out infinite;transition:transform .2s ease}
+.play:hover{transform:translate(-50%,-50%) scale(1.07)}
+.play svg{width:44%;margin-left:7%}
+.invite-text{position:absolute;left:0;right:0;bottom:0;padding:1.5rem 1.7rem;background:linear-gradient(180deg,transparent,rgba(13,16,48,.9));text-align:left}
+.invite-text b{display:block;font-size:clamp(1.15rem,2.4vw,1.6rem);font-weight:700}
+.invite-text span{font-size:.92rem;color:var(--dim)}
+
+/* broadcast */
+.broadcast{background:linear-gradient(180deg,var(--volcanic),var(--midnight));position:relative;overflow:hidden}
+.trod-cap{font-size:.85rem;color:var(--dim);text-align:center;margin-top:.95rem;letter-spacing:.02em}
+.trod .ripple{animation:trodRipple 8s cubic-bezier(.25,.6,.4,1) infinite}
+@keyframes trodRipple{0%{r:14px;opacity:.75}60%{r:268px;opacity:0}100%{r:268px;opacity:0}}
+.broadcast .wrap{max-width:680px}
+.badge{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--aurora);font-weight:700;margin-bottom:1rem}
+.badge .dot{width:9px;height:9px;border-radius:50%;background:var(--aurora);box-shadow:0 0 0 0 rgba(244,39,137,.6);animation:live 1.8s infinite}
+@keyframes live{0%{box-shadow:0 0 0 0 rgba(244,39,137,.55)}70%{box-shadow:0 0 0 11px rgba(244,39,137,0)}100%{box-shadow:0 0 0 0 rgba(244,39,137,0)}}
+.broadcast p{margin-top:1.1rem}
+.watch-link{display:inline-block;margin-top:1.6rem;color:var(--glacier);opacity:.75;font-size:.95rem;text-decoration:underline;text-underline-offset:4px;transition:opacity .2s}
+.watch-link:hover{opacity:1}
+
+/* closing circle */
+.closing{background:var(--midnight)}
+.closing-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.closing p{margin-top:1.1rem}
+
+/* final section video */
+.final{position:relative;overflow:hidden;isolation:isolate}
+.final-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.final::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--volcanic) 0%,rgba(23,23,29,.55) 30%,rgba(23,23,29,.55) 70%,rgba(23,23,29,.9) 100%);z-index:-1}
+.frame{border-radius:18px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.5);border:1px solid rgba(240,246,249,.12);position:relative}
+
+/* the ring — the pulse cycle */
+.ring{background:var(--midnight);text-align:center}
+.cycle{position:relative;width:min(86vw,660px);aspect-ratio:1;margin:0 auto}
+.cycle-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.orbit{animation:orbitSpin 8s linear infinite;transform-origin:300px 300px}
+@keyframes orbitSpin{to{transform:rotate(360deg)}}
+.cycle-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:62%}
+.cycle-center h2{font-size:clamp(1.5rem,3.6vw,2.5rem)}
+.cycle-sub{font-size:clamp(.92rem,1.8vw,1.1rem);color:var(--dim);margin-top:.8rem}
+.beat{font-size:clamp(.85rem,1.8vw,1.05rem);font-weight:500;position:absolute;transform:translate(-50%,-50%);padding:.5rem .9rem;width:13rem;animation:beatGlow 8s ease-in-out infinite;text-shadow:0 1px 12px rgba(13,16,48,.9)}
+@media (max-width:760px){.beat{width:9.5rem;font-size:.8rem}.cb2{left:80%}.cb3{left:20%}}
+.cb1{left:50%;top:10%}
+.cb2{left:84.6%;top:70%;animation-delay:2.667s}
+.cb3{left:15.4%;top:70%;animation-delay:5.333s}
+@keyframes beatGlow{0%,2%{filter:brightness(1.55);transform:translate(-50%,-50%) scale(1.06)}10%,100%{filter:brightness(1);transform:translate(-50%,-50%) scale(1)}}
+.beat span{display:block;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--solar);margin-bottom:.4rem;font-weight:700}
+.ring .frame{max-width:640px;margin:3rem auto 0}
+
+/* integration */
+.integration{background:linear-gradient(180deg,var(--midnight),var(--volcanic))}
+.integration .wrap{max-width:680px}
+.kicker{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:1rem}
+.integration p{margin-top:1.1rem}
+.integration .cta{margin-top:2rem}
+
+/* journey — Iceland → the water altar → the hand → the world */
+.journey{height:640vh;position:relative;background:#000}
+.journey-sticky{position:sticky;top:0;height:100vh;overflow:hidden}
+.j-aerial{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:62% 78%;will-change:transform,opacity}
+.j-trod2{position:absolute;left:50%;top:50%;width:120vmin;aspect-ratio:1;transform:translate(-50%,-50%);opacity:0;will-change:transform,opacity}
+.j-trod2 svg{width:100%;height:100%;display:block}
+#worldmap{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(94vw,1080px);aspect-ratio:2/1;opacity:0;will-change:opacity}
+.j-zoom{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;will-change:transform,opacity}
+.j-rings{width:150vmin;height:150vmin;flex:none;opacity:0;will-change:opacity}
+.j-photo{position:absolute;left:50%;top:50%;width:46vmin;height:46vmin;transform:translate(-50%,-50%);border-radius:50%;overflow:hidden}
+.j-photo img{width:100%;height:100%;object-fit:cover}
+.j-glow{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(255,247,224,.9),rgba(251,205,102,.55) 55%,rgba(251,205,102,.25) 100%);opacity:0;will-change:opacity}
+.journey .map-head{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) translateY(18px);width:min(92%,700px);text-align:center;opacity:0;will-change:opacity,transform;text-shadow:0 2px 26px rgba(0,0,0,.85)}
+
+/* duo — the relationship of two things */
+.duo{height:280vh;position:relative;background:#000}
+.duo-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.duo-sticky img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform:scale(1.14);will-change:transform}
+.duo-glow{position:absolute;inset:0;background:radial-gradient(ellipse 60% 45% at 50% 50%,rgba(251,205,102,.28),rgba(240,246,249,.06) 55%,transparent 75%);opacity:0;will-change:opacity}
+.duo-line{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) translateY(26px);width:min(90%,22ch);text-align:center;font-size:clamp(1.9rem,4.6vw,3.2rem);font-weight:700;letter-spacing:-.015em;line-height:1.15;opacity:0;text-shadow:0 2px 30px rgba(0,0,0,.85);will-change:opacity,transform}
+
+/* testimonials */
+.testis{background:linear-gradient(180deg,#000,var(--volcanic))}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.4rem}
+.testi{border:1px solid rgba(240,246,249,.13);border-radius:18px;padding:1.8rem 1.6rem;background:linear-gradient(180deg,rgba(13,16,48,.55),rgba(23,23,29,.7))}
+.testi blockquote{font-size:clamp(1.05rem,2vw,1.25rem);font-weight:700;line-height:1.35}
+.testi p{margin-top:.9rem;font-size:.92rem;color:var(--dim)}
+.testi figcaption{margin-top:1.1rem;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--solar);font-weight:700}
+@media (max-width:760px){.testi-grid{grid-template-columns:1fr}}
+
+/* montage — everyone feeling the pulse together */
+.montage{background:var(--volcanic);overflow:hidden}
+.montage .intro{text-align:center;max-width:60ch;margin:0 auto}
+.montage .intro .lead{margin:1.1rem auto 0}
+.collage-wrap{position:relative;margin-top:3rem;border-radius:20px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.5)}
+.collage{width:100%;display:block;transform:scale(1.1);transform-origin:center 60%;will-change:transform}
+.collage-pulse{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 50% 48%,rgba(251,205,102,.2),transparent 72%);animation:collagePulse 8s ease-in-out infinite}
+@keyframes collagePulse{0%,84%,100%{opacity:.06}90%{opacity:1}96%{opacity:.2}}
+.montage .outro{text-align:center;margin-top:2.4rem;font-size:clamp(1.02rem,2vw,1.2rem);color:var(--dim)}
+@media (max-width:760px){
+}
+
+/* offer */
+.offer{background:var(--volcanic)}
+.offer h2{text-align:center}
+.offer .chip-row{display:flex;justify-content:center;margin-top:1.4rem}
+.paths-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.2rem,3vw,2rem);margin-top:2.4rem;max-width:960px;margin-left:auto;margin-right:auto}
+.path{aspect-ratio:1/1;position:relative;display:flex;flex-direction:column;justify-content:flex-end;border-radius:20px;overflow:hidden;padding:1.8rem 1.7rem;border:1px solid rgba(240,246,249,.14);background-size:cover;background-position:center}
+.path.gate{background-image:linear-gradient(200deg,rgba(13,16,48,0) 35%,rgba(13,16,48,.45) 62%,rgba(13,16,48,.92)),url('assets/card-festival.jpg')}
+.path[data-path="home"]{background-image:linear-gradient(200deg,rgba(13,16,48,0) 35%,rgba(13,16,48,.45) 62%,rgba(13,16,48,.92)),url('assets/card-home.jpg')}
+.path h3{font-size:1.3rem;margin-bottom:.45rem;text-shadow:0 1px 14px rgba(13,16,48,.8)}
+.path p{font-size:.98rem;color:rgba(240,246,249,.88)}
+.path p + p{margin-top:.55rem}
+.path .note{font-size:.85rem;color:rgba(240,246,249,.62)}
+.offer .cta-row{display:flex;flex-direction:column;align-items:center;gap:.8rem;margin-top:2.6rem}
+.batch{font-size:.92rem;color:var(--dim);text-align:center}
+
+/* live options (in the broadcast section) */
+.live-options{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:1.8rem;max-width:520px}
+.live-opt{display:block;border:1px solid rgba(240,246,249,.16);border-radius:16px;padding:1.1rem 1.2rem;text-decoration:none;color:var(--glacier);background:rgba(240,246,249,.03);transition:border-color .2s,background .2s}
+.live-opt:hover{border-color:var(--solar);background:rgba(251,205,102,.06)}
+.live-opt b{display:block;font-size:1rem;margin-bottom:.25rem}
+.live-opt span{font-size:.85rem;color:var(--dim)}
+
+/* community band: RSVP + referral */
+.community{background:linear-gradient(180deg,var(--volcanic),var(--midnight))}
+.community .cards{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.2rem,3vw,2rem)}
+.ccard{border:1px solid rgba(240,246,249,.14);border-radius:20px;padding:2.2rem 2rem;background:rgba(240,246,249,.03)}
+.ccard.gift{background:linear-gradient(100deg,rgba(13,16,48,.9) 34%,rgba(13,16,48,.5)),url('assets/duo-float.jpg') center 45%/cover no-repeat;border-color:rgba(251,205,102,.28)}
+.ccard.gift p{color:rgba(240,246,249,.82)}
+.ccard h2{font-size:clamp(1.4rem,2.8vw,1.9rem)}
+.ccard p{margin-top:.8rem;color:var(--dim);font-size:1rem}
+.ccard form{margin-top:1.6rem;display:flex;gap:.6rem;flex-wrap:wrap}
+.ccard input{flex:1;background:rgba(240,246,249,.06);border:1px solid rgba(240,246,249,.22);border-radius:999px;padding:.85rem 1.4rem;color:var(--glacier);font-family:inherit;font-size:.95rem;min-width:200px;outline:none}
+.ccard input:focus{border-color:var(--teal)}
+.btn-outline{background:transparent;border:1px solid rgba(240,246,249,.35);color:var(--glacier);border-radius:999px;padding:.85rem 1.6rem;font-family:inherit;font-size:.95rem;cursor:pointer;text-decoration:none;display:inline-block;transition:border-color .2s,color .2s}
+.btn-outline:hover{border-color:var(--teal);color:var(--teal)}
+.ccard .thanks{margin-top:1.2rem;color:var(--teal);display:none}
+.ccard .thanks a{color:var(--solar)}
+.ccard .value{margin-top:1.6rem}
+.ccard .value .btn-outline{border-color:var(--solar);color:var(--solar)}
+.ccard .value .btn-outline:hover{background:rgba(251,205,102,.1)}
+.ccard .fine-note{margin-top:1rem;font-size:.8rem;color:rgba(240,246,249,.55)}
+
+/* final */
+.final{background:radial-gradient(ellipse 70% 55% at 50% 42%,rgba(255,138,61,.28),transparent 65%),var(--midnight);text-align:center}
+.eclipse-mark{width:110px;height:110px;border-radius:50%;margin:0 auto 2rem;background:var(--midnight);box-shadow:0 0 40px 14px rgba(255,138,61,.55),0 0 90px 40px rgba(251,205,102,.25)}
+.final h2{max-width:20ch;margin:0 auto 1.6rem}
+.final .fine{margin-top:2.6rem;font-size:.8rem;color:rgba(240,246,249,.45)}
+
+footer{background:var(--midnight);border-top:1px solid rgba(240,246,249,.12);padding:1.8rem 0;text-align:center;font-size:.8rem;color:rgba(240,246,249,.5)}
+footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;margin-top:.4rem}
+
+/* sticky mobile bar */
+.sticky-bar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(13,16,48,.92);backdrop-filter:blur(10px);border-top:1px solid rgba(240,246,249,.15);padding:.7rem 1rem;display:none;align-items:center;justify-content:space-between;gap:1rem;transform:translateY(110%);transition:transform .3s ease}
+.sticky-bar.show{transform:translateY(0)}
+.sticky-bar .off{font-size:.85rem;color:var(--dim)}
+.sticky-bar .off b{color:var(--solar)}
+.sticky-bar .cta{padding:.7rem 1.5rem;font-size:.95rem;box-shadow:none}
+
+@media (max-width:760px){
+  .broadcast .wrap,.integration .wrap,.paths-grid,.community .cards,.live-options,.closing-grid{grid-template-columns:1fr}
+  .integration .frame{order:-1}
+  .hero-inner{padding-bottom:1rem}
+  .sticky-bar{display:flex}
+  body.bar-visible{padding-bottom:64px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <img class="hero-bg" src="assets/hero-ring.jpg" alt="" fetchpriority="high">
+  <div class="hero-inner">
+    <div class="lockup" role="img" aria-label="Pulse and Unify">
+      <span class="lk-brand"><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="10.5" fill="none" stroke="#fbcd66" stroke-width="1.2" opacity=".4"/><circle cx="13" cy="13" r="7" fill="none" stroke="#fbcd66" stroke-width="2.6"/></svg>PULSE</span>
+      <span class="lk-x">×</span>
+      <span class="lk-brand"><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="9.5" fill="#0d1030" stroke="#fbcd66" stroke-width="1.6"/><path d="M5.5 9.5a9.5 9.5 0 0 1 15 0" fill="none" stroke="#fff7e0" stroke-width="1.6" stroke-linecap="round" opacity=".9"/></svg>UNIFY</span>
+    </div>
+    <h1>Experience Totality.</h1>
+    <p class="sub">Every pulse awakens your power.</p>
+    <div class="cta-row">
+      <a class="cta buy" href="https://pulsemindfulness.com/?discount=ECLIPSE100">Get my ring</a>
+      <span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#00b99b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Eclipse offer applied · $100 off</span>
+    </div>
+  </div>
+  <div class="strip">
+    <div class="strip-inner" aria-live="off">
+      <span class="n" id="cd">&nbsp;</span>
+      <span class="l" id="cd-label">To totality over Snæfellsjökull · Aug 12 · 17:47 UTC</span>
+    </div>
+  </div>
+</header>
+
+<!-- FOUNDER INVITATION (placeholder thumbnail — video pending) -->
+<section class="invite block">
+  <div class="wrap">
+    <div class="invite-card frame">
+      <img src="assets/johan-invite.jpg" alt="Johan, founder of Pulse, holding up his hand wearing the gold ring in an Icelandic valley at dusk" width="1280" height="720">
+      <!-- TODO (dev owner TBD): mock-up placeholder — swap this card for the real video embed when Johan's invitation is cut -->
+      <button class="play" type="button" aria-label="Play the invitation from Johan. Video coming soon."><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+      <div class="invite-text">
+        <b>Welcome to the Singularity</b>
+        <span>An invitation from Johan, founder and inventor of the Pulse ring</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE BROADCAST -->
+<section class="broadcast block">
+  <div class="wrap">
+    <div>
+      <span class="badge"><span class="dot"></span>Live transmission</span>
+      <h2>Totality, wherever you are.</h2>
+      <p class="lead">August 12. We transmit live from the Circle of Tröð: fifteen rings of people around one water altar, beneath Snæfellsjökull.</p>
+      <p class="lead">Unify co-founder Patrick Kronfli holds the circle, on land one Icelandic family has kept sacred for generations. Ceremonial music builds chapter by chapter as the moon closes.</p>
+      <p class="lead">At totality, two minutes of shared silence. Your intention goes into the water.</p>
+      <div class="live-options">
+        <a class="live-opt" href="#offer"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 3 20h18L12 4Z"/><path d="M12 13l-3.5 7M12 13l3.5 7"/></svg><b>In person</b><span>Your ring waits at the gate.</span></a>
+        <a class="live-opt" href="#rsvp"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="18" r="1.4" fill="currentColor" stroke="none"/><path d="M8.5 14.5a5 5 0 0 1 7 0M5.5 11.5a9 9 0 0 1 13 0"/></svg><b>Tune in remotely</b><span>Your seat in the sixteenth ring.</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE RING -->
+<section class="ring block">
+  <div class="wrap">
+    <div class="cycle">
+      <svg class="cycle-svg" viewBox="0 0 600 600" aria-hidden="true">
+        <defs>
+          <filter id="corona-soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="11"/></filter>
+          <filter id="corona-mid" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="5"/></filter>
+          <filter id="corona-core" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="1.6"/></filter>
+        </defs>
+        <circle cx="300" cy="300" r="238" fill="rgba(4,5,16,.55)"/>
+        <circle class="cycle-track" cx="300" cy="300" r="240" fill="none" stroke="rgba(251,205,102,.22)" stroke-width="1.2"/>
+        <g class="orbit">
+          <circle cx="300" cy="300" r="242" fill="none" stroke="#fbcd66" stroke-width="26" stroke-linecap="round" pathLength="100" stroke-dasharray="26 74" transform="rotate(-90 300 300)" opacity=".3" filter="url(#corona-soft)"/>
+          <circle cx="300" cy="300" r="241" fill="none" stroke="#ffdf9e" stroke-width="9" stroke-linecap="round" pathLength="100" stroke-dasharray="22 78" transform="rotate(-88 300 300)" opacity=".55" filter="url(#corona-mid)"/>
+          <circle cx="300" cy="300" r="240" fill="none" stroke="#fff7e0" stroke-width="3" stroke-linecap="round" pathLength="100" stroke-dasharray="17 83" transform="rotate(-86 300 300)" opacity=".95" filter="url(#corona-core)"/>
+        </g>
+      </svg>
+      <div class="cycle-center">
+        <h2>One pulse brings you back.</h2>
+        <p class="cycle-sub">Gentle nudges, at the perfect time.</p>
+      </div>
+      <div class="beat cb1"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="9.5" opacity=".45"/></svg><span>Pulse</span>A gentle vibration finds you.</div>
+      <div class="beat cb2"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M9.5 7.5v9M14.5 7.5v9"/></svg><span>Pause</span>One breath, right where you are.</div>
+      <div class="beat cb3"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h3.5L9 6.5l4 11 2.5-5.5H21"/></svg><span>Practice</span>Presence becomes rhythm.</div>
+    </div>
+  </div>
+</section>
+
+<section class="integration block">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Integration day · August 13</span>
+      <h2>Every pulse, a reminder.</h2>
+      <p class="lead">Beneath the eclipse, you promise yourself something. Softer with your kids. Present at dinner. Here for your one life.</p>
+      <p class="lead">Most promises fade by Tuesday. Yours comes home on your finger.</p>
+      <p class="lead">A felt reminder. The perfect nudge when you need it.</p>
+      <a class="cta buy" href="https://pulsemindfulness.com/?discount=ECLIPSE100">Get my ring</a>
+    </div>
+  </div>
+</section>
+
+<section class="closing block" id="closing">
+  <div class="wrap closing-grid">
+    <div>
+      <span class="kicker">The closing circle</span>
+      <h2>Close the circle with us.</h2>
+      <p class="lead">The festival ends with a Pulse ritual in the Garden. The transmission carries it home.</p>
+      <p class="lead">Rings up. One breath, together.</p>
+      <a class="watch-link" href="#rsvp">RSVP for the transmission</a>
+    </div>
+    <div class="frame"><img src="assets/closing-circle.jpg" alt="A facilitator faces the camera before the candle-lit rings of the ceremony mandala, beside a video call grid of people at home holding up their rings and smiling" width="2752" height="1536" loading="lazy" decoding="async"></div>
+  </div>
+</section>
+
+<section class="journey" id="journey">
+  <div class="journey-sticky">
+    <canvas id="worldmap" aria-label="A dotted world map: the pulse radiates from Iceland to five hundred wearers everywhere"></canvas>
+    <img class="j-aerial" src="assets/aerial-iceland.jpg" alt="" aria-hidden="true">
+    <div class="j-trod2" aria-hidden="true">
+      <svg viewBox="0 0 640 640">
+        <defs>
+          <radialGradient id="trodBg2" cx="50%" cy="48%" r="75%">
+            <stop offset="0%" stop-color="#181d4e"/><stop offset="55%" stop-color="#0d1030"/><stop offset="100%" stop-color="#17171d"/>
+          </radialGradient>
+          <radialGradient id="altarGlow2" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#fff7e0" stop-opacity=".95"/><stop offset="45%" stop-color="#fbcd66" stop-opacity=".55"/><stop offset="100%" stop-color="#fbcd66" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <g stroke="#fbcd66" fill="none" stroke-width="2.4" stroke-linecap="round">
+          <circle cx="320" cy="320" r="44" stroke-dasharray="0 11" opacity=".5"/>
+          <circle cx="320" cy="320" r="58" stroke-dasharray="0 11" opacity=".47"/>
+          <circle cx="320" cy="320" r="71" stroke-dasharray="0 11" opacity=".44"/>
+          <circle cx="320" cy="320" r="85" stroke-dasharray="0 11" opacity=".41"/>
+          <circle cx="320" cy="320" r="99" stroke-dasharray="0 11" opacity=".38"/>
+          <circle cx="320" cy="320" r="112" stroke-dasharray="0 11" opacity=".35"/>
+          <circle cx="320" cy="320" r="126" stroke-dasharray="0 11" opacity=".32"/>
+          <circle cx="320" cy="320" r="140" stroke-dasharray="0 11" opacity=".3"/>
+          <circle cx="320" cy="320" r="153" stroke-dasharray="0 11" opacity=".27"/>
+          <circle cx="320" cy="320" r="167" stroke-dasharray="0 11" opacity=".25"/>
+          <circle cx="320" cy="320" r="181" stroke-dasharray="0 11" opacity=".23"/>
+          <circle cx="320" cy="320" r="194" stroke-dasharray="0 11" opacity=".21"/>
+          <circle cx="320" cy="320" r="208" stroke-dasharray="0 11" opacity=".19"/>
+          <circle cx="320" cy="320" r="222" stroke-dasharray="0 11" opacity=".17"/>
+          <circle cx="320" cy="320" r="236" stroke-dasharray="0 11" opacity=".15"/>
+        </g>
+        <g fill="#fbcd66" opacity=".55">
+          <polygon points="505.3,507.3 491.1,504.4 502.4,493.1"/>
+          <polygon points="134.7,507.3 137.5,493.1 148.9,504.4"/>
+          <polygon points="134.7,136.7 148.9,139.5 137.5,150.8"/>
+          <polygon points="505.3,136.7 502.5,150.8 491.1,139.5"/>
+        </g>
+        <circle cx="320" cy="320" r="26" fill="url(#altarGlow2)"/>
+        <circle cx="320" cy="320" r="11" fill="#fbcd66"/>
+        <circle cx="320" cy="320" r="4.5" fill="#fff7e0"/>
+      </svg>
+    </div>
+    <div class="j-zoom" aria-hidden="true">
+      <svg class="j-rings" viewBox="0 0 600 600" fill="none">
+        <g stroke="#fbcd66" stroke-width="2.2" stroke-linecap="round">
+          <circle cx="300" cy="300" r="70" stroke-dasharray="0 10" opacity=".5"/>
+          <circle cx="300" cy="300" r="100" stroke-dasharray="0 10" opacity=".44"/>
+          <circle cx="300" cy="300" r="130" stroke-dasharray="0 10" opacity=".38"/>
+          <circle cx="300" cy="300" r="160" stroke-dasharray="0 10" opacity=".32"/>
+          <circle cx="300" cy="300" r="190" stroke-dasharray="0 10" opacity=".27"/>
+          <circle cx="300" cy="300" r="220" stroke-dasharray="0 10" opacity=".22"/>
+          <circle cx="300" cy="300" r="250" stroke-dasharray="0 10" opacity=".17"/>
+          <circle cx="300" cy="300" r="278" stroke-dasharray="0 10" opacity=".13"/>
+        </g>
+        <g fill="#fbcd66" opacity=".5">
+          <polygon points="507,507 494,504 504,494"/>
+          <polygon points="93,507 96,494 106,504"/>
+          <polygon points="93,93 106,96 96,106"/>
+          <polygon points="507,93 504,106 494,96"/>
+        </g>
+      </svg>
+      <div class="j-photo"><img src="assets/card-festival.jpg" alt=""><div class="j-glow"></div></div>
+    </div>
+    <div class="map-head">
+      <span class="kicker">Let's be present together</span>
+      <h2>Join the Pulse community.</h2>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS — real wearers, from the Loox reviews -->
+<section class="testis block">
+  <div class="wrap">
+    <span class="kicker" style="display:block;text-align:center">In their words</span>
+    <div class="testi-grid">
+      <figure class="testi">
+        <blockquote>&ldquo;After the vibration I returned to really being there with my son.&rdquo;</blockquote>
+        <p>Kicking a football around with my son, my mind started to wander. The ring pulsed, and I returned to really being there with him.</p>
+        <figcaption>Jon Prince</figcaption>
+      </figure>
+      <figure class="testi">
+        <blockquote>&ldquo;Pulse brings me back into the moment.&rdquo;</blockquote>
+        <p>Whether that&rsquo;s when I&rsquo;m with a patient as a First Responder, or at home and need to ground myself. A longer breath, and I refocus on what&rsquo;s important.</p>
+        <figcaption>Jonny Vaughan · First Responder</figcaption>
+      </figure>
+      <figure class="testi">
+        <blockquote>&ldquo;I stopped reaching for my phone during deep work.&rdquo;</blockquote>
+        <p>I&rsquo;ve tried every focus tool out there. Pulse is the first one that actually works for me. Like a quiet tap on the shoulder bringing me back.</p>
+        <figcaption>Michal Wroblewski · COO</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="montage block">
+  <div class="wrap">
+    <div class="intro">
+      <span class="kicker">Felt everywhere</span>
+      <h2>Break autopilot. Be HERE for it.</h2>
+      <p class="lead">Thousands of hands touched, united by one pulse.</p>
+    </div>
+    <div class="collage-wrap">
+      <img class="collage" src="assets/collage.jpg" alt="A layered collage: an elder, a woman with closed eyes, a young man at golden hour, a mother with her toddler, and a couple touching fingertips, every hand wearing the Pulse ring with gold ripples weaving between them" width="2752" height="1536" loading="lazy" decoding="async">
+      <div class="collage-pulse" aria-hidden="true"></div>
+    </div>
+    <p class="outro">When it pulses, everyone returns at once.</p>
+  </div>
+</section>
+
+<section class="duo" id="duo" aria-label="Two rings, one gold and one silver, floating together">
+  <div class="duo-sticky">
+    <img src="assets/duo-float.jpg" alt="" loading="lazy" decoding="async">
+    <div class="duo-glow" aria-hidden="true"></div>
+    <p class="duo-line" data-step="0">Going to the eclipse?</p>
+    <p class="duo-line" data-step="1">Watching from home?</p>
+    <p class="duo-line" data-step="2">Either way, your ring finds you.</p>
+  </div>
+</section>
+
+<section class="offer block" id="offer">
+  <div class="wrap">
+    <h2>Where your ring finds you</h2>
+    <div class="chip-row"><span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#00b99b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Eclipse offer applied · $100 off</span></div>
+    <div class="paths-grid" id="paths">
+      <div class="path gate" data-path="gate">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 3 20h18L12 4Z"/><path d="M12 13l-3.5 7M12 13l3.5 7"/></svg>
+        <h3>Going to Snæfellsnes</h3>
+        <p>Reserve now, pick up on site. $100 off.</p>
+        <p class="note">200 rings travel to the festival. We can't restock on the peninsula.</p>
+      </div>
+      <div class="path" data-path="home">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11 12 4l8 7"/><path d="M6 10v9h12v-9"/></svg>
+        <h3>Staying home</h3>
+        <p>Delivered, same $100 off. Second day delivery is our gift.</p>
+        <p class="note">Order by August 7 to wear it for the transmission. After that it arrives as your integration companion.</p>
+      </div>
+    </div>
+    <div class="cta-row">
+      <a class="cta buy" href="https://pulsemindfulness.com/?discount=ECLIPSE100">Get my ring · $100 off <span class="cta-timer" id="cta-timer"></span></a>
+      <p class="batch">Small batches. This one closes October 1.</p>
+    </div>
+  </div>
+</section>
+
+<section class="community block" id="rsvp">
+  <div class="wrap">
+    <div class="cards">
+      <div class="ccard">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="18" r="1.4" fill="currentColor" stroke="none"/><path d="M8.5 14.5a5 5 0 0 1 7 0M5.5 11.5a9 9 0 0 1 13 0"/></svg>
+        <h2>RSVP for the live transmission</h2>
+        <p>August 12, 17:47 UTC. The link finds you before totality, with notes to prepare your space.</p>
+        <!-- TODO (dev owner TBD): point this form at the ESP (Klaviyo/Mailchimp) RSVP list before Aug 5 -->
+        <form id="watch-form">
+          <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address">
+          <button class="btn-outline" type="submit">RSVP</button>
+        </form>
+        <p class="thanks" id="watch-thanks">You're in. The link and your prep notes arrive before August 12. Want the pulse with you when it happens? <a class="buy" href="https://pulsemindfulness.com/?discount=ECLIPSE100">Get my ring</a></p>
+      </div>
+      <div class="ccard gift">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="9" rx="1.5"/><path d="M12 10v9M4 10h16"/><path d="M12 10c-1.2-3.2-5.2-4-5.2-1.4S12 10 12 10Zm0 0c1.2-3.2 5.2-4 5.2-1.4S12 10 12 10Z"/></svg>
+        <h2>Bring someone with you</h2>
+        <p>Your code gives free express shipping, a $45 value, ahead of the live transmission.</p>
+        <div class="value">
+          <!-- TODO (dev owner TBD): replace with the impact.com advocate enrollment URL for the Pulse referral program -->
+          <a class="btn-outline" href="https://pulsemindfulness.com/referral">Get my referral code</a>
+        </div>
+        <p class="fine-note">Share it however you like.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRATION DAY -->
+
+<!-- MONTAGE — the pulse, felt together -->
+
+<!-- DUO — the relationship of two things -->
+
+<!-- OFFER -->
+
+<!-- COMMUNITY: RSVP + REFERRAL -->
+
+<!-- FINAL CTA -->
+
+<section class="final block">
+  <video class="final-bg" autoplay muted loop playsinline src="assets/final-ring.mp4" aria-hidden="true"></video>
+  <div class="wrap">
+    <div class="lockup" role="img" aria-label="Pulse and Unify">
+      <span class="lk-brand"><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="10.5" fill="none" stroke="#fbcd66" stroke-width="1.2" opacity=".4"/><circle cx="13" cy="13" r="7" fill="none" stroke="#fbcd66" stroke-width="2.6"/></svg>PULSE</span>
+      <span class="lk-x">×</span>
+      <span class="lk-brand"><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="9.5" fill="#0d1030" stroke="#fbcd66" stroke-width="1.6"/><path d="M5.5 9.5a9.5 9.5 0 0 1 15 0" fill="none" stroke="#fff7e0" stroke-width="1.6" stroke-linecap="round" opacity=".9"/></svg>UNIFY</span>
+    </div>
+    <h2>Feel total presence.</h2>
+    <a class="cta buy" href="https://pulsemindfulness.com/?discount=ECLIPSE100">Get my ring</a>
+    <p class="fine">Totality over Snæfellsjökull · August 12 · 17:47 UTC</p>
+  </div>
+</section>
+
+<footer>
+  <div>Pulse Mindfulness · The Ceremony Garden</div>
+  <div class="partner">Official mindfulness partner · Iceland Eclipse Festival</div>
+</footer>
+
+<!-- STICKY MOBILE BAR -->
+<div class="sticky-bar" id="sticky">
+  <span class="off"><b>$100 off</b> · Eclipse offer</span>
+  <a class="cta buy" href="https://pulsemindfulness.com/?discount=ECLIPSE100">Get my ring</a>
+</div>
+
+<script src="assets/worldgrid.js"></script>
+<script>
+/* Page phases: pre-eclipse -> integration -> batch close.
+   One clock in the hero; copy elsewhere follows the phase. */
+const TOTALITY=new Date('2026-08-12T17:47:00Z');
+const CEREMONY=new Date('2026-08-13T18:30:00Z');
+const BATCH=new Date('2026-10-01T23:59:00Z');
+const EXPRESS=new Date('2026-08-08T05:00:00Z');
+const localTot=TOTALITY.toLocaleTimeString([], {hour:'numeric',minute:'2-digit'});
+const STATES=[
+  {t:TOTALITY, label:'To totality over Snæfellsjökull · Aug 12 · '+localTot+' your time'},
+  {t:CEREMONY, label:'To the integration ceremony · The Ceremony Garden'},
+  {t:BATCH, label:'Until this batch closes · October 1', now:'This batch has closed'}
+];
+const cd=document.getElementById('cd'), cdl=document.getElementById('cd-label'), ctaT=document.getElementById('cta-timer');
+function tick(){
+  const nowMs=Date.now();
+  let s=STATES.find(x=>x.t-nowMs>0);
+  if(!s){ cd.textContent=''; cdl.textContent=STATES[2].now; if(ctaT)ctaT.textContent=''; return; }
+  const d=s.t-nowMs;
+  const days=Math.floor(d/864e5), h=Math.floor(d%864e5/36e5), m=Math.floor(d%36e5/6e4);
+  cd.textContent=(days?days+'d ':'')+h+'h '+m+'m';
+  cdl.textContent=s.label;
+  if(ctaT)ctaT.textContent=(days?days+'d ':'')+h+'h '+m+'m';
+  setTimeout(tick,30000);
+}
+tick();
+
+/* Phase-aware copy swaps so the page never goes stale */
+function twoLines(el,a,b){
+  el.replaceChildren(document.createTextNode(a),document.createElement('br'),document.createTextNode(b));
+}
+const now=Date.now();
+if(now>EXPRESS){
+  const home=document.querySelector('[data-path="home"]');
+  home.querySelector('p').textContent='Yours arrives as your integration companion.';
+  home.querySelector('.note').textContent='Your intention is set on the 13th. The ring meets you at home and carries it forward.';
+}
+if(now>TOTALITY){
+  twoLines(document.querySelector('.hero h1'),'Totality passed.','Presence remains.');
+  document.querySelector('.hero .sub').textContent='One pulse still brings you back.';
+  const b=document.querySelector('.broadcast');
+  b.querySelector('h2').textContent='The ceremony continues.';
+  const leads=b.querySelectorAll('.lead');
+  leads[0].textContent='Totality has passed. The integration is just beginning.';
+  leads[1].textContent='Watch the ceremony recording and set your intention with us.';
+}
+if(now>CEREMONY){
+  document.querySelector('.integration .kicker').textContent='Integration';
+  const gate=document.querySelector('[data-path="gate"]');
+  if(gate)gate.remove();
+  const grid=document.getElementById('paths');
+  grid.style.gridTemplateColumns='1fr';
+  grid.style.maxWidth='560px';
+  grid.style.margin='2.4rem auto 0';
+  document.querySelector('.offer h2').textContent='Your ring finds you at home';
+}
+
+/* World map — one pulse from Iceland to five hundred wearers */
+const wm=document.getElementById('worldmap');
+if(wm&&typeof WORLD_DOTS!=='undefined'){
+  const wctx=wm.getContext('2d');
+  const ICE={x:(180-18.5)/360,y:(90-64.9)/180};
+  function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+  const rand=mulberry32(20260812);
+  const inland=WORLD_DOTS.filter(d=>d[1]>7);
+  const nodes=[];
+  for(let i=0;i<500;i++){
+    const c=inland[Math.floor(rand()*inland.length)];
+    const nx=(c[0]+0.2+rand()*0.6)/WORLD_COLS, ny=(c[1]+0.2+rand()*0.6)/WORLD_ROWS;
+    nodes.push({x:nx,y:ny,d:Math.hypot(nx-ICE.x,(ny-ICE.y)*0.5),tw:rand()*6.28});
+  }
+  const maxD=nodes.reduce((m,n)=>Math.max(m,n.d),0);
+  const wmReduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let wmW=0,wmH=0,wmRun=false;
+  function wmSize(){
+    const r=wm.getBoundingClientRect(), dpr=Math.min(2,devicePixelRatio||1);
+    wmW=r.width; wmH=r.width/2;
+    wm.width=Math.round(wmW*dpr); wm.height=Math.round(wmH*dpr);
+    wctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  function wmDraw(tms){
+    const t=(tms/1000)%8, prog=t/8;
+    wctx.clearRect(0,0,wmW,wmH);
+    const dotR=Math.max(1,wmW/WORLD_COLS*0.2);
+    wctx.fillStyle='rgba(240,246,249,.10)';
+    for(const d of WORLD_DOTS){
+      wctx.beginPath();
+      wctx.arc((d[0]+0.5)/WORLD_COLS*wmW,(d[1]+0.5)/WORLD_ROWS*wmH,dotR,0,6.283);
+      wctx.fill();
+    }
+    const front=prog*maxD*1.12, band=maxD*0.16;
+    for(const n of nodes){
+      const gap=Math.abs(n.d-front);
+      const hit=Math.exp(-(gap*gap)/(2*band*band));
+      const twinkle=wmReduced?0:0.08*Math.sin(tms/1400+n.tw);
+      const a=Math.min(1,0.22+twinkle+hit*0.75);
+      const r=dotR*(1+hit*1.15);
+      wctx.fillStyle='rgba(251,205,102,'+a.toFixed(3)+')';
+      wctx.beginPath();
+      wctx.arc(n.x*wmW,n.y*wmH,r,0,6.283);
+      wctx.fill();
+    }
+    const ix=ICE.x*wmW, iy=ICE.y*wmH;
+    for(let k=0;k<3;k++){
+      const rp=((prog+k/3)%1);
+      const rr=rp*wmW*0.11;
+      wctx.strokeStyle='rgba(251,205,102,'+(0.5*(1-rp)).toFixed(3)+')';
+      wctx.lineWidth=1.4;
+      wctx.beginPath(); wctx.arc(ix,iy,rr,0,6.283); wctx.stroke();
+    }
+    const g=wctx.createRadialGradient(ix,iy,0,ix,iy,dotR*7);
+    g.addColorStop(0,'rgba(255,247,224,.95)');g.addColorStop(.4,'rgba(251,205,102,.55)');g.addColorStop(1,'rgba(251,205,102,0)');
+    wctx.fillStyle=g;
+    wctx.beginPath(); wctx.arc(ix,iy,dotR*7,0,6.283); wctx.fill();
+    wctx.fillStyle='#fff7e0';
+    wctx.beginPath(); wctx.arc(ix,iy,dotR*1.6,0,6.283); wctx.fill();
+  }
+  function wmLoop(ts){ if(!wmRun)return; wmDraw(ts); if(!wmReduced)requestAnimationFrame(wmLoop); }
+  wmSize();
+  addEventListener('resize',function(){wmSize(); if(wmReduced)wmDraw(3000)});
+  new IntersectionObserver(function(en){
+    const vis=en[0].isIntersecting;
+    if(vis&&!wmRun){wmRun=true;requestAnimationFrame(wmLoop)}
+    else if(!vis){wmRun=false}
+  },{rootMargin:'120px'}).observe(wm);
+  if(wmReduced){wmRun=true;wmDraw(3000)}
+}
+
+/* Hero parallax — the ring drifts behind the text */
+const heroBg=document.querySelector('.hero-bg');
+if(heroBg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  heroBg.style.transform='scale(1.12)';
+  addEventListener('scroll',function(){requestAnimationFrame(function(){
+    const y=Math.min(window.scrollY,innerHeight);
+    heroBg.style.transform='translateY('+(y*.32).toFixed(1)+'px) scale(1.12)';
+  })},{passive:true});
+}
+
+/* Collage — subjects settle gently as you scroll */
+const collage=document.querySelector('.collage');
+if(collage&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  addEventListener('scroll',function(){requestAnimationFrame(function(){
+    const r=collage.getBoundingClientRect();
+    const p=Math.min(1,Math.max(0,(innerHeight-r.top)/(innerHeight+r.height)));
+    collage.style.transform='scale('+(1.12-0.1*p).toFixed(4)+')';
+  })},{passive:true});
+}
+
+/* Journey — hand in Iceland → altar ripple → the whole world */
+const jSec=document.querySelector('.journey');
+if(jSec&&wm){
+  const jZoom=jSec.querySelector('.j-zoom'), jRings=jSec.querySelector('.j-rings'),
+        jGlow=jSec.querySelector('.j-glow'), jHead=jSec.querySelector('.map-head'),
+        jReduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const clamp01=v=>Math.min(1,Math.max(0,v));
+  const lerp=(a,b,t)=>a+(b-a)*t;
+  const easeIO=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+  const jAerial=jSec.querySelector('.j-aerial'), jTrod2=jSec.querySelector('.j-trod2');
+  function jTick(){
+    if(jReduced){
+      jZoom.style.display='none'; jAerial.style.display='none'; jTrod2.style.display='none';
+      wm.style.opacity=1;
+      jHead.style.opacity=1;jHead.style.transform='translate(-50%,-50%)';
+      return;
+    }
+    const r=jSec.getBoundingClientRect();
+    const p=clamp01(-r.top/(r.height-innerHeight));
+    /* A: Iceland from the air, diving toward the glowing circle — circle glides to center.
+       The circle sits at (62%, 78%) of the image FILE; account for object-fit:cover crop. */
+    const aQ=clamp01(p/.185);
+    const aS=lerp(1,2.9,Math.pow(aQ,1.6));
+    let atx=0, aty=0;
+    if(jAerial.naturalWidth){
+      const cs=Math.max(innerWidth/jAerial.naturalWidth, innerHeight/jAerial.naturalHeight);
+      const px=(innerWidth-jAerial.naturalWidth*cs)/2 + 0.626*jAerial.naturalWidth*cs;
+      const py=(innerHeight-jAerial.naturalHeight*cs)/2 + 0.7455*jAerial.naturalHeight*cs;
+      jAerial.style.transformOrigin=px.toFixed(1)+'px '+py.toFixed(1)+'px';
+      atx=(innerWidth/2-px)*aQ; aty=(innerHeight/2-py)*aQ;
+    }
+    jAerial.style.transform='translate('+atx.toFixed(1)+'px,'+aty.toFixed(1)+'px) scale('+aS.toFixed(4)+')';
+    jAerial.style.opacity=(1-clamp01((p-.2)/.07)).toFixed(3);
+    /* B: into the Circle of Tröð, down to the water altar */
+    const tS=lerp(.55,6.5,easeIO(clamp01((p-.19)/.31)));
+    jTrod2.style.transform='translate(-50%,-50%) scale('+tS.toFixed(4)+')';
+    jTrod2.style.opacity=(clamp01((p-.19)/.06)*(1-clamp01((p-.45)/.06))).toFixed(3);
+    /* C: the altar's light becomes the hand wearing the ring */
+    let scale, tx=0, ty=0, zo;
+    if(p<=.7){
+      scale=lerp(.3,1,easeIO(clamp01((p-.43)/.22)));
+      zo=clamp01((p-.43)/.08);
+    } else {
+      const t=easeIO(clamp01((p-.7)/.25));
+      scale=lerp(1,.055,t);
+      const mr=wm.getBoundingClientRect();
+      const icx=mr.left+.4486*mr.width, icy=mr.top+.1394*mr.height;
+      tx=lerp(0,icx-innerWidth/2,t); ty=lerp(0,icy-innerHeight/2,t);
+      zo=1-clamp01((p-.91)/.05);
+    }
+    jZoom.style.transform='translate('+tx.toFixed(1)+'px,'+ty.toFixed(1)+'px) scale('+scale.toFixed(4)+')';
+    jZoom.style.opacity=zo.toFixed(3);
+    jRings.style.opacity=clamp01((p-.58)/.09).toFixed(3);
+    jGlow.style.opacity=(clamp01((p-.44)/.12)*.9).toFixed(3);
+    /* D: zoom out — the world appears, the wave lights the nodes */
+    wm.style.opacity=clamp01((p-.68)/.16).toFixed(3);
+    const hp=clamp01((p-.92)/.06);
+    jHead.style.opacity=hp.toFixed(3);
+    jHead.style.transform='translate(-50%,-50%) translateY('+(18*(1-hp)).toFixed(1)+'px)';
+  }
+  addEventListener('scroll',function(){requestAnimationFrame(jTick)},{passive:true});
+  addEventListener('resize',function(){requestAnimationFrame(jTick)},{passive:true});
+  jTick();
+}
+
+/* Duo scroll sequence — the relationship of two things */
+const duoSec=document.getElementById('duo');
+if(duoSec){
+  const dImg=duoSec.querySelector('img'), dGlow=duoSec.querySelector('.duo-glow'),
+        dLines=[...duoSec.querySelectorAll('.duo-line')],
+        dReduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const dBands=[[.04,.36],[.36,.68],[.68,1.01]];
+  function duoTick(){
+    const r=duoSec.getBoundingClientRect();
+    const p=Math.min(1,Math.max(0,-r.top/(r.height-innerHeight)));
+    if(dReduced){dLines.forEach((l,i)=>{l.style.opacity=i===2?1:0;l.style.transform='translate(-50%,-50%)'});dGlow.style.opacity=.25;return}
+    dImg.style.transform='scale('+(1.14-.12*p).toFixed(4)+')';
+    dLines.forEach((l,i)=>{
+      const a=dBands[i][0], b=dBands[i][1];
+      let o=0, ty=26;
+      if(p>=a&&p<b){
+        const lp=(p-a)/(b-a);
+        o=lp<.25?lp/.25:(i===2?1:(lp>.8?(1-lp)/.2:1));
+        ty=26*(1-Math.min(1,lp/.25));
+      } else if(i===2&&p>=b){o=1;ty=0}
+      l.style.opacity=o.toFixed(3);
+      l.style.transform='translate(-50%,-50%) translateY('+ty.toFixed(1)+'px)';
+    });
+    dGlow.style.opacity=p>.68?((p-.68)/.32*.85).toFixed(3):0;
+  }
+  addEventListener('scroll',function(){requestAnimationFrame(duoTick)},{passive:true});
+  duoTick();
+}
+
+/* UTM pre-sort: unify newsletter/FB traffic sees ship-home first */
+const params=new URLSearchParams(location.search);
+if((params.get('src')||'').toLowerCase()==='unify'){
+  const grid=document.getElementById('paths');
+  grid.appendChild(grid.querySelector('[data-path="gate"]'));
+}
+
+/* Carry inbound params through to the store links */
+const code=params.get('code')||params.get('discount');
+document.querySelectorAll('a.buy').forEach(a=>{
+  const u=new URL(a.href);
+  if(code)u.searchParams.set('discount',code);
+  ['src','utm_source','utm_medium','utm_campaign'].forEach(k=>{if(params.get(k))u.searchParams.set(k,params.get(k))});
+  a.href=u.toString();
+});
+
+/* Sticky bar after hero scrolls off (mobile) */
+const bar=document.getElementById('sticky'), hero=document.querySelector('.hero'), offer=document.querySelector('.final');
+if('IntersectionObserver' in window){
+  let heroGone=false, finalSeen=false;
+  const update=()=>{const show=heroGone&&!finalSeen;bar.classList.toggle('show',show);document.body.classList.toggle('bar-visible',show)};
+  new IntersectionObserver(e=>{heroGone=!e[0].isIntersecting;update()},{threshold:.05}).observe(hero);
+  new IntersectionObserver(e=>{finalSeen=e[0].isIntersecting;update()},{threshold:.2}).observe(offer);
+}
+
+/* Watch-live capture: confirmation re-offers the ring.
+   TODO (dev owner TBD): point this at the ESP endpoint (Klaviyo/Mailchimp) before Aug 5. */
+document.getElementById('watch-form').addEventListener('submit',e=>{
+  e.preventDefault();
+  e.target.style.display='none';
+  document.getElementById('watch-thanks').style.display='block';
+});
+</script>
+</body>
+</html>
