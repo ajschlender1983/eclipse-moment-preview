@@ -145,10 +145,19 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 /* journey — Iceland → the water altar → the hand → the world */
 .journey{height:640vh;position:relative;background:#000}
 .journey-sticky{position:sticky;top:0;height:100vh;overflow:hidden}
+/* page break — the circle, and the line */
+.onebreak{position:relative;height:min(88vh,760px);overflow:hidden;isolation:isolate;display:flex;align-items:center;justify-content:center}
+.onebreak-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;z-index:-2;transform:scale(1.08);will-change:transform}
+.onebreak-veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--volcanic) 0%,rgba(23,23,29,.35) 22%,rgba(13,16,48,.5) 50%,rgba(23,23,29,.4) 78%,var(--volcanic) 100%)}
+.onebreak-line{display:flex;flex-direction:column;gap:.15em;text-align:center;font-size:clamp(2rem,5.6vw,4rem);font-weight:700;letter-spacing:-.02em;line-height:1.06;text-shadow:0 3px 40px rgba(0,0,0,.9)}
+.onebreak-line span{opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s ease}
+.onebreak-line span:nth-child(2){transition-delay:.22s}
+.onebreak-line span:nth-child(3){transition-delay:.44s;color:var(--solar)}
+.onebreak.seen .onebreak-line span{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.onebreak-line span{opacity:1;transform:none}}
+
 /* the moment — planetary alignment, for whoever is watching */
-.moment{position:relative;overflow:hidden;isolation:isolate;padding:clamp(5rem,11vw,9rem) 0}
-.moment-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;z-index:-2;opacity:.5}
-.moment-veil{position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 50% 45%,rgba(13,16,48,.55) 0%,rgba(13,16,48,.88) 55%,var(--volcanic) 100%)}
+.moment{position:relative;background:var(--volcanic);padding:clamp(4.5rem,10vw,8rem) 0}
 .moment-inner{max-width:760px;text-align:center}
 .moment-inner .lead{margin:1.2rem auto 0;max-width:52ch;color:rgba(240,246,249,.82)}
 .moment-inner h2{margin-top:.7rem}
@@ -304,16 +313,21 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
 </section>
 
 <!-- LIVE BROADCAST -->
+<!-- PAGE BREAK — one heart -->
+<section class="onebreak" aria-label="One heart. One family. One intention.">
+  <img class="onebreak-bg" src="assets/ceremony-mandala.jpg" alt="Fifteen rings of people seated around the flowered water altar of the Ceremony Garden, seen from above" width="1800" height="1075">
+  <div class="onebreak-veil" aria-hidden="true"></div>
+  <p class="onebreak-line"><span>One heart.</span><span>One family.</span><span>One intention.</span></p>
+</section>
+
 <!-- THE MOMENT -->
 <section class="moment">
-  <img class="moment-bg" src="assets/ceremony-mandala.jpg" alt="" aria-hidden="true">
-  <div class="moment-veil" aria-hidden="true"></div>
   <div class="wrap moment-inner">
     <span class="kicker">August 12 · 17:47 UTC · two minutes</span>
     <h2>The moment the planet looks up.</h2>
     <p class="lead">The moon covers the sun over the North Atlantic. Day turns to dusk, the birds go quiet, and everyone standing in that shadow feels the same thing at the same second.</p>
     <p class="lead">In Iceland, fifteen hundred people sit in fifteen rings around a water altar, facing inward while the earth, the moon and the sun come into a line. Fifteen musicians, an eighteen-voice choir, twelve drummers. Forty-five minutes of music that builds, then stops.</p>
-    <p class="lead moment-close">Alignments like this are how a species remembers it is one. One heart, one human family, connecting to the rhythm of life.</p>
+    <p class="lead moment-close">Alignments like this are how a species remembers it is one. For two minutes, nobody is anywhere else.</p>
     <div class="moment-stats">
       <div><b>1,500</b><span>in the circle</span></div>
       <div><b>15</b><span>rings, facing in</span></div>
@@ -734,6 +748,23 @@ if(wm&&typeof WORLD_DOTS!=='undefined'){
     else if(!vis){wmRun=false}
   },{rootMargin:'120px'}).observe(wm);
   if(wmReduced){wmRun=true;wmDraw(3000)}
+}
+
+/* Page break — reveal the line, drift the circle */
+const oneBreak=document.querySelector('.onebreak');
+if(oneBreak){
+  const obBg=oneBreak.querySelector('.onebreak-bg');
+  new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ oneBreak.classList.add('seen'); } });
+  },{threshold:.35}).observe(oneBreak);
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    addEventListener('scroll',function(){requestAnimationFrame(function(){
+      const r=oneBreak.getBoundingClientRect();
+      if(r.bottom<0||r.top>innerHeight) return;
+      const p=(innerHeight-r.top)/(innerHeight+r.height);
+      obBg.style.transform='translateY('+((p-.5)*-46).toFixed(1)+'px) scale(1.08)';
+    })},{passive:true});
+  }
 }
 
 /* Hero parallax — the ring drifts behind the text */
