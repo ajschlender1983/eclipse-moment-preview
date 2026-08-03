@@ -537,7 +537,7 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
     </div>
     <div class="cta-row">
       <a class="cta buy" href="https://pulsemindfulness.com/?discount=ECLIPSE100">Get my ring · $100 off <span class="cta-timer" id="cta-timer"></span></a>
-      <p class="batch">Small batches. This one closes October 1.</p>
+      <p class="batch">Rings remaining in this release: <b id="rings-left">1,482</b><!-- TODO (dev owner TBD): wire to live inventory count -->. Ordering closes October 1.</p>
     </div>
   </div>
 </section>
@@ -545,6 +545,16 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
 <section class="community block" id="rsvp">
   <div class="wrap">
     <div class="cards">
+      <div class="ccard gift">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="9" rx="1.5"/><path d="M12 10v9M4 10h16"/><path d="M12 10c-1.2-3.2-5.2-4-5.2-1.4S12 10 12 10Zm0 0c1.2-3.2 5.2-4 5.2-1.4S12 10 12 10Z"/></svg>
+        <h2>Watch it with someone</h2>
+        <p>Send your code to whoever should be in the silence with you. Free express shipping, a $45 value, so their ring lands before August 12.</p>
+        <div class="value">
+          <!-- TODO (dev owner TBD): replace with the impact.com advocate enrollment URL for the Pulse referral program -->
+          <a class="btn-outline" href="https://pulsemindfulness.com/referral">Get my referral code</a>
+        </div>
+        <p class="fine-note">One code, as many people as you like.</p>
+      </div>
       <div class="ccard">
         <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="18" r="1.4" fill="currentColor" stroke="none"/><path d="M8.5 14.5a5 5 0 0 1 7 0M5.5 11.5a9 9 0 0 1 13 0"/></svg>
         <h2>RSVP for the live transmission</h2>
@@ -555,16 +565,6 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
           <button class="btn-outline" type="submit">RSVP</button>
         </form>
         <p class="thanks" id="watch-thanks">You're in. The link and your prep notes arrive before August 12. Want the pulse with you when it happens? <a class="buy" href="https://pulsemindfulness.com/?discount=ECLIPSE100">Get my ring</a></p>
-      </div>
-      <div class="ccard gift">
-        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="9" rx="1.5"/><path d="M12 10v9M4 10h16"/><path d="M12 10c-1.2-3.2-5.2-4-5.2-1.4S12 10 12 10Zm0 0c1.2-3.2 5.2-4 5.2-1.4S12 10 12 10Z"/></svg>
-        <h2>Bring someone with you</h2>
-        <p>Your code gives free express shipping, a $45 value, ahead of the live transmission.</p>
-        <div class="value">
-          <!-- TODO (dev owner TBD): replace with the impact.com advocate enrollment URL for the Pulse referral program -->
-          <a class="btn-outline" href="https://pulsemindfulness.com/referral">Get my referral code</a>
-        </div>
-        <p class="fine-note">Share it however you like.</p>
       </div>
     </div>
   </div>
@@ -609,17 +609,17 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
 
 <script src="assets/worldgrid.js"></script>
 <script>
-/* Page phases: pre-eclipse -> integration -> batch close.
+/* Page phases: pre-eclipse -> integration -> ordering close.
    One clock in the hero; copy elsewhere follows the phase. */
 const TOTALITY=new Date('2026-08-12T17:47:00Z');
 const CEREMONY=new Date('2026-08-13T18:30:00Z');
-const BATCH=new Date('2026-10-01T23:59:00Z');
+const RELEASE_CLOSE=new Date('2026-10-01T23:59:00Z');
 const EXPRESS=new Date('2026-08-08T05:00:00Z');
 const localTot=TOTALITY.toLocaleTimeString([], {hour:'numeric',minute:'2-digit'});
 const STATES=[
   {t:TOTALITY, label:'To totality over Snæfellsjökull · Aug 12 · '+localTot+' your time'},
   {t:CEREMONY, label:'To the integration ceremony · The Ceremony Garden'},
-  {t:BATCH, label:'Until this batch closes · October 1', now:'This batch has closed'}
+  {t:RELEASE_CLOSE, label:'Until ordering closes · October 1', now:'Ordering has closed'}
 ];
 const cd=document.getElementById('cd'), cdl=document.getElementById('cd-label'), ctaT=document.getElementById('cta-timer');
 function tick(){
