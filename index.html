@@ -145,7 +145,18 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 /* journey — Iceland → the water altar → the hand → the world */
 .journey{height:640vh;position:relative;background:#000}
 .journey-sticky{position:sticky;top:0;height:100vh;overflow:hidden}
-.j-aerial{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:62% 78%;will-change:transform,opacity}
+/* the moment — planetary alignment, for whoever is watching */
+.moment{position:relative;overflow:hidden;isolation:isolate;padding:clamp(5rem,11vw,9rem) 0}
+.moment-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;z-index:-2;opacity:.5}
+.moment-veil{position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 50% 45%,rgba(13,16,48,.55) 0%,rgba(13,16,48,.88) 55%,var(--volcanic) 100%)}
+.moment-inner{max-width:760px;text-align:center}
+.moment-inner .lead{margin:1.2rem auto 0;max-width:52ch;color:rgba(240,246,249,.82)}
+.moment-inner h2{margin-top:.7rem}
+.moment-close{color:var(--glacier)!important;font-weight:500}
+.moment-stats{display:flex;justify-content:center;gap:clamp(1.4rem,6vw,4rem);flex-wrap:wrap;margin-top:2.6rem;padding-top:1.9rem;border-top:1px solid rgba(240,246,249,.14)}
+.moment-stats b{display:block;font-size:clamp(1.3rem,3vw,1.9rem);color:var(--solar);font-weight:700;line-height:1.1}
+.moment-stats span{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.j-aerial{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:50% 37%;will-change:transform,opacity}
 .j-trod2{position:absolute;left:50%;top:50%;width:120vmin;aspect-ratio:1;transform:translate(-50%,-50%);opacity:0;will-change:transform,opacity}
 .j-trod2 svg{width:100%;height:100%;display:block}
 #worldmap{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(94vw,1080px);aspect-ratio:2/1;opacity:0;will-change:opacity}
@@ -293,6 +304,25 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
 </section>
 
 <!-- LIVE BROADCAST -->
+<!-- THE MOMENT -->
+<section class="moment">
+  <img class="moment-bg" src="assets/ceremony-mandala.jpg" alt="" aria-hidden="true">
+  <div class="moment-veil" aria-hidden="true"></div>
+  <div class="wrap moment-inner">
+    <span class="kicker">August 12 · 17:47 UTC · two minutes</span>
+    <h2>The moment the planet looks up.</h2>
+    <p class="lead">The moon covers the sun over the North Atlantic. Day turns to dusk, the birds go quiet, and everyone standing in that shadow feels the same thing at the same second.</p>
+    <p class="lead">In Iceland, fifteen hundred people sit in fifteen rings around a water altar, facing inward while the earth, the moon and the sun come into a line. Fifteen musicians, an eighteen-voice choir, twelve drummers. Forty-five minutes of music that builds, then stops.</p>
+    <p class="lead moment-close">Alignments like this are how a species remembers it is one. One heart, one human family, connecting to the rhythm of life.</p>
+    <div class="moment-stats">
+      <div><b>1,500</b><span>in the circle</span></div>
+      <div><b>15</b><span>rings, facing in</span></div>
+      <div><b>2 min</b><span>of shared silence</span></div>
+      <div><b>1</b><span>intention each</span></div>
+    </div>
+  </div>
+</section>
+
 <section class="broadcast block">
   <div class="wrap">
     <div>
@@ -370,7 +400,7 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
 <section class="journey" id="journey">
   <div class="journey-sticky">
     <canvas id="worldmap" aria-label="A dotted world map: the pulse radiates from Iceland to five hundred wearers everywhere"></canvas>
-    <img class="j-aerial" src="assets/aerial-iceland.jpg" alt="" aria-hidden="true">
+    <img class="j-aerial" src="assets/ceremony-mandala.jpg" alt="" aria-hidden="true">
     <div class="j-trod2" aria-hidden="true">
       <svg viewBox="0 0 640 640">
         <defs>
@@ -745,15 +775,15 @@ if(jSec&&wm){
     }
     const r=jSec.getBoundingClientRect();
     const p=clamp01(-r.top/(r.height-innerHeight));
-    /* A: Iceland from the air, diving toward the glowing circle — circle glides to center.
-       The circle sits at (62%, 78%) of the image FILE; account for object-fit:cover crop. */
+    /* A: the Circle of Tröð from above, diving toward the water altar — altar glides to center.
+       The altar sits at (50.5%, 40%) of the image FILE; account for object-fit:cover crop. */
     const aQ=clamp01(p/.185);
     const aS=lerp(1,2.9,Math.pow(aQ,1.6));
     let atx=0, aty=0;
     if(jAerial.naturalWidth){
       const cs=Math.max(innerWidth/jAerial.naturalWidth, innerHeight/jAerial.naturalHeight);
-      const px=(innerWidth-jAerial.naturalWidth*cs)/2 + 0.626*jAerial.naturalWidth*cs;
-      const py=(innerHeight-jAerial.naturalHeight*cs)/2 + 0.7455*jAerial.naturalHeight*cs;
+      const px=(innerWidth-jAerial.naturalWidth*cs)/2 + 0.5048*jAerial.naturalWidth*cs;
+      const py=(innerHeight-jAerial.naturalHeight*cs)/2 + 0.4004*jAerial.naturalHeight*cs;
       jAerial.style.transformOrigin=px.toFixed(1)+'px '+py.toFixed(1)+'px';
       atx=(innerWidth/2-px)*aQ; aty=(innerHeight/2-py)*aQ;
     }
