@@ -112,18 +112,20 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 
 /* the ring — the pulse cycle traced on the real eclipse */
 .ring{background:var(--midnight);text-align:center}
-.cycle-photo{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.5)}
+.cycle-photo{position:relative;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden}
 .cycle-img{position:relative}
 .cycle-img img{width:100%;height:auto;display:block}
-.corona-trace{position:absolute;left:40.03%;top:6.75%;width:13.95%;aspect-ratio:1;overflow:visible}
+.corona-trace{position:absolute;left:42.86%;top:8.46%;width:15%;aspect-ratio:1;overflow:visible}
 .orbit2{animation:orbitSpin 8s linear infinite;transform-origin:100px 100px}
 @keyframes orbitSpin{to{transform:rotate(360deg)}}
-.cycle-copy{position:absolute;left:50%;top:31%;transform:translateX(-50%);width:min(88%,620px);z-index:2}
+.cycle-copy{position:absolute;left:50%;top:40%;transform:translateX(-50%);width:min(88%,620px);z-index:2}
 .cycle-copy h2{font-size:clamp(1.5rem,3.8vw,2.6rem);text-shadow:0 2px 26px rgba(0,0,0,.85)}
 .cycle-sub{font-size:clamp(.92rem,1.8vw,1.1rem);color:rgba(240,246,249,.88);margin-top:.7rem;text-shadow:0 1px 16px rgba(0,0,0,.9)}
 @media (max-width:700px){.cycle-copy{position:static;transform:none;width:92%;margin:0 auto;padding:1.3rem 0 1.1rem}}
-.cycle-beats{display:flex;justify-content:center;gap:clamp(1.2rem,6vw,5rem);flex-wrap:wrap;padding-top:2.4rem}
-.beat{font-size:clamp(.85rem,1.8vw,1.05rem);font-weight:500;max-width:15rem;animation:beatGlow 8s ease-in-out infinite}
+.cycle-beats{position:absolute;left:0;right:0;bottom:4.5%;z-index:2;display:flex;justify-content:center;gap:clamp(1.2rem,6vw,7rem);flex-wrap:nowrap;padding:0 4%}
+.cycle-beats .beat{flex:1 1 0}
+@media (max-width:860px){.cycle-beats{position:static;flex-wrap:wrap;padding:1.6rem 5% 1.9rem}.cycle-beats .beat{flex:none}}
+.beat{font-size:clamp(.85rem,1.8vw,1.05rem);font-weight:500;max-width:15rem;animation:beatGlow 8s ease-in-out infinite;text-shadow:0 1px 14px rgba(0,0,0,.92)}
 .cb2{animation-delay:2.667s}
 .cb3{animation-delay:5.333s}
 @keyframes beatGlow{0%,2%{filter:brightness(1.55)}10%,100%{filter:brightness(1)}}
@@ -327,11 +329,11 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
           </g>
         </svg>
       </div>
-    </div>
-    <div class="cycle-beats">
+      <div class="cycle-beats">
       <div class="beat cb1"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="9.5" opacity=".45"/></svg><span>Pulse</span>A gentle vibration finds you.</div>
       <div class="beat cb2"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M9.5 7.5v9M14.5 7.5v9"/></svg><span>Pause</span>One breath, right where you are.</div>
       <div class="beat cb3"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h3.5L9 6.5l4 11 2.5-5.5H21"/></svg><span>Practice</span>Presence becomes rhythm.</div>
+      </div>
     </div>
   </div>
 </section>
