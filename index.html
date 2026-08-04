@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Experience Totality Together · Pulse & Unify</title>
-<meta name="description" content="Every pulse awakens your power. Live transmission August 12. Integration ceremony the day after. Set one intention and let every pulse return you to it.">
+<meta name="description" content="Every pulse awakens your power. Live transmission August 12. The closing circle August 14. Set one intention and let every pulse return you to it.">
 <meta property="og:title" content="Experience Totality Together · Pulse & Unify">
 <meta property="og:description" content="Watch the eclipse ceremony live from Iceland. Set one intention. Let every gentle pulse of your ring return you to it. $100 off with the eclipse offer.">
 <!-- TODO (dev owner TBD): og:image must become an ABSOLUTE https URL at deploy or Facebook/iMessage previews will not show the image -->
@@ -131,7 +131,7 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 /* the ring — every pulse, on the living eclipse */
 .ring{background:linear-gradient(180deg,rgba(11,10,22,0) 78%,#0b0a16 100%), radial-gradient(90% 70% at 15% 10%, rgba(73,41,145,.28), transparent 65%), radial-gradient(70% 60% at 85% 80%, rgba(244,39,137,.12), transparent 70%), var(--midnight);text-align:center}
 .cycle-stage{position:relative;width:min(92vw,520px);margin:0 auto;aspect-ratio:9/16}
-.cycle-vid-bg{position:absolute;inset:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(180deg,#000 55%,rgba(0,0,0,.5) 78%,transparent 97%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(180deg,#000 55%,rgba(0,0,0,.5) 78%,transparent 97%);mask-composite:intersect}
+.cycle-vid-bg{position:absolute;inset:0;overflow:hidden;border-radius:18px}
 .cycle-stage h2{position:absolute;left:50%;top:26%;transform:translate(-50%,-50%);width:94%;z-index:3;font-size:clamp(1.5rem,3.4vw,2.2rem);text-shadow:0 2px 30px rgba(0,0,0,.92)}
 .cycle-cards{position:absolute;inset:0;z-index:3}
 .beat-card{position:absolute;transform:translate(-50%,-50%);width:min(38%,10.5rem);text-align:center}
@@ -372,10 +372,26 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
 
 <!-- THE RING -->
 
+<section class="ring block">
+  <div class="wrap">
+    <div class="cycle-stage">
+      <div class="cycle-vid-bg" aria-hidden="true">
+        <video class="cycle-video" src="assets/cycle-eclipse.mp4" autoplay muted loop playsinline preload="metadata" aria-label="A total eclipse blazing over dark mountains while a gold ring sends ripples across water"></video>
+      </div>
+      <h2>Every pulse brings you back.</h2>
+      <div class="cycle-cards">
+        <div class="beat-card bc-left"><div class="beat cb1"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="9.5" opacity=".45"/></svg><span>Pulse</span>A gentle vibration finds you.</div></div>
+        <div class="beat-card bc-right"><div class="beat cb2"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M9.5 7.5v9M14.5 7.5v9"/></svg><span>Pause</span>One breath, right where you are.</div></div>
+        <div class="beat-card bc-bottom"><div class="beat cb3"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h3.5L9 6.5l4 11 2.5-5.5H21"/></svg><span>Practice</span>Presence becomes rhythm.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="integration block" id="closing">
   <div class="wrap closing-grid">
     <div>
-      <span class="kicker">Integration day · The closing circle · August 13</span>
+      <span class="kicker">The closing circle · Friday, August 14 · 19:00 Iceland</span>
       <h2>Every pulse, a reminder.</h2>
       <p class="lead">Beneath the eclipse, you promise yourself something. Softer with your kids. Present at dinner. Here for your one life.</p>
       <p class="lead">Most promises fade by Tuesday. Yours comes home on your finger.</p>
@@ -415,21 +431,6 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
   </div>
 </section>
 
-<section class="ring block">
-  <div class="wrap">
-    <div class="cycle-stage">
-      <div class="cycle-vid-bg" aria-hidden="true">
-        <video class="cycle-video" src="assets/cycle-eclipse.mp4" autoplay muted loop playsinline preload="metadata" aria-label="A total eclipse blazing over dark mountains while a gold ring sends ripples across water"></video>
-      </div>
-      <h2>Every pulse brings you back.</h2>
-      <div class="cycle-cards">
-        <div class="beat-card bc-left"><div class="beat cb1"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="9.5" opacity=".45"/></svg><span>Pulse</span>A gentle vibration finds you.</div></div>
-        <div class="beat-card bc-right"><div class="beat cb2"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M9.5 7.5v9M14.5 7.5v9"/></svg><span>Pause</span>One breath, right where you are.</div></div>
-        <div class="beat-card bc-bottom"><div class="beat cb3"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h3.5L9 6.5l4 11 2.5-5.5H21"/></svg><span>Practice</span>Presence becomes rhythm.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="journey" id="journey">
   <div class="journey-sticky">
@@ -674,13 +675,13 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
 /* Page phases: pre-eclipse -> integration -> ordering close.
    One clock in the hero; copy elsewhere follows the phase. */
 const TOTALITY=new Date('2026-08-12T17:47:00Z');
-const CEREMONY=new Date('2026-08-13T18:30:00Z');
+const CEREMONY=new Date('2026-08-14T19:00:00Z');
 const RELEASE_CLOSE=new Date('2026-10-01T23:59:00Z');
 const EXPRESS=new Date('2026-08-08T05:00:00Z');
 const localTot=TOTALITY.toLocaleTimeString([], {hour:'numeric',minute:'2-digit'});
 const STATES=[
   {t:TOTALITY, label:'To totality over Snæfellsjökull · Aug 12 · '+localTot+' your time'},
-  {t:CEREMONY, label:'To the integration ceremony · The Ceremony Garden'},
+  {t:CEREMONY, label:'To the closing circle · The Ceremony Garden'},
   {t:RELEASE_CLOSE, label:'Until ordering closes · October 1', now:'Ordering has closed'}
 ];
 const cd=document.getElementById('cd'), cdl=document.getElementById('cd-label'), ctaT=document.getElementById('cta-timer');
@@ -705,7 +706,7 @@ const now=Date.now();
 if(now>EXPRESS){
   const home=document.querySelector('[data-path="home"]');
   home.querySelector('p').textContent='Yours arrives as your integration companion.';
-  home.querySelector('.note').textContent='Your intention is set on the 13th. The ring meets you at home and carries it forward.';
+  home.querySelector('.note').textContent='Your intention is set at the closing circle. The ring meets you at home and carries it forward.';
 }
 if(now>TOTALITY){
   twoLines(document.querySelector('.hero h1'),'Totality passed.','Presence remains.');
@@ -717,7 +718,7 @@ if(now>TOTALITY){
   leads[1].textContent='Watch the ceremony recording and set your intention with us.';
 }
 if(now>CEREMONY){
-  document.querySelector('.integration .kicker').textContent='Integration';
+  document.querySelector('.integration .kicker').textContent='The closing circle';
   const gate=document.querySelector('[data-path="gate"]');
   if(gate)gate.remove();
   const grid=document.getElementById('paths');
