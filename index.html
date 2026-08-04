@@ -111,18 +111,27 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 .frame{border-radius:18px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.5);border:1px solid rgba(240,246,249,.12);position:relative}
 
 /* break autopilot — text band under the invite */
-.autopilot{background:linear-gradient(180deg,var(--volcanic),#101226);text-align:center}
-.autopilot .lead{margin:1.1rem auto 0}
+.autopilot{position:relative;min-height:min(100vh,860px);display:flex;align-items:flex-end;justify-content:center;padding-bottom:clamp(3rem,9vh,6rem);overflow:hidden;isolation:isolate;text-align:center}
+.auto-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%;z-index:-2;transform:scale(1.14);will-change:transform}
+.auto-veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--volcanic) 0,rgba(23,23,29,.35) 18%,rgba(11,10,22,.32) 46%,rgba(11,10,22,.86) 72%,var(--volcanic) 97%)}
+.auto-inner{position:relative;z-index:1}
+.auto-lock{display:flex;flex-direction:column;align-items:center;gap:.35rem}
+.lock-a{font-size:clamp(.95rem,2.4vw,1.35rem);font-weight:300;letter-spacing:.42em;text-indent:.42em;text-transform:uppercase;color:rgba(240,246,249,.9);text-shadow:0 2px 22px rgba(0,0,0,.9)}
+.lock-b{font-size:clamp(2.1rem,6.4vw,4.4rem);font-weight:700;letter-spacing:-.03em;line-height:1.02;background:linear-gradient(100deg,#fff7e0,var(--solar) 42%,var(--corona));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 3px 30px rgba(0,0,0,.8))}
+.autopilot .lead{margin:1.6rem auto 0;text-shadow:0 1px 20px rgba(0,0,0,.9)}
 
 /* the ring — every pulse, on the living eclipse */
 .ring{background:linear-gradient(180deg,rgba(11,10,22,0) 78%,#0b0a16 100%), radial-gradient(90% 70% at 15% 10%, rgba(73,41,145,.28), transparent 65%), radial-gradient(70% 60% at 85% 80%, rgba(244,39,137,.12), transparent 70%), var(--midnight);text-align:center}
-.cycle-stage{position:relative;width:min(92vw,520px);margin:0 auto}
-.cycle-vid-bg{position:absolute;left:0;top:0;width:100%;aspect-ratio:9/16;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(180deg,#000 45%,rgba(0,0,0,.55) 68%,transparent 96%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(180deg,#000 45%,rgba(0,0,0,.55) 68%,transparent 96%);mask-composite:intersect}
-.cycle-stage h2{position:relative;z-index:2;font-size:clamp(1.6rem,3.6vw,2.4rem);text-shadow:0 2px 30px rgba(0,0,0,.9);margin-bottom:1.3rem}
-.cycle-spacer{padding-top:50%}
-.cycle-cards{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:1rem;padding-bottom:.5rem}
-.beat-card{background:rgba(13,16,48,.6);border:1px solid rgba(255,138,61,.5);box-shadow:0 0 20px rgba(255,138,61,.16), inset 0 0 0 1px rgba(251,205,102,.08);border-radius:16px;padding:1.05rem 1.7rem;width:min(88vw,21rem)}
-.beat{font-size:clamp(.9rem,1.6vw,1.02rem);line-height:1.4;font-weight:500;animation:beatGlow 8s ease-in-out infinite}
+.cycle-stage{position:relative;width:min(92vw,520px);margin:0 auto;aspect-ratio:9/16}
+.cycle-vid-bg{position:absolute;inset:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(180deg,#000 55%,rgba(0,0,0,.5) 78%,transparent 97%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(180deg,#000 55%,rgba(0,0,0,.5) 78%,transparent 97%);mask-composite:intersect}
+.cycle-stage h2{position:absolute;left:50%;top:26%;transform:translate(-50%,-50%);width:94%;z-index:3;font-size:clamp(1.5rem,3.4vw,2.2rem);text-shadow:0 2px 30px rgba(0,0,0,.92)}
+.cycle-cards{position:absolute;inset:0;z-index:3}
+.beat-card{position:absolute;transform:translate(-50%,-50%);width:min(38%,10.5rem);text-align:center}
+.bc-left{left:21%;top:46%}
+.bc-right{left:79%;top:46%}
+.bc-bottom{left:50%;top:80%;width:min(62%,15rem)}
+
+.beat{font-size:clamp(.82rem,1.5vw,.96rem);text-shadow:0 1px 16px rgba(0,0,0,.95);line-height:1.4;font-weight:500;animation:beatGlow 8s ease-in-out infinite}
 .cb2{animation-delay:2.667s}
 .cb3{animation-delay:5.333s}
 @keyframes beatGlow{0%,2%{filter:brightness(1.5)}10%,100%{filter:brightness(1)}}
@@ -197,13 +206,18 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 .offer h2{text-align:center}
 .offer .chip-row{display:flex;justify-content:center;margin-top:1.4rem}
 .paths-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.2rem,3vw,2rem);margin-top:2.4rem;max-width:960px;margin-left:auto;margin-right:auto}
-.path{aspect-ratio:1/1;position:relative;display:flex;flex-direction:column;justify-content:flex-end;border-radius:20px;overflow:hidden;padding:1.8rem 1.7rem;border:1px solid rgba(240,246,249,.14);background-size:cover;background-position:center}
-.path.gate{background-image:linear-gradient(200deg,rgba(13,16,48,0) 35%,rgba(13,16,48,.45) 62%,rgba(13,16,48,.92)),url('assets/card-festival.jpg')}
-.path[data-path="home"]{background-image:linear-gradient(200deg,rgba(13,16,48,0) 35%,rgba(13,16,48,.45) 62%,rgba(13,16,48,.92)),url('assets/card-home.jpg')}
-.path h3{font-size:1.3rem;margin-bottom:.45rem;text-shadow:0 1px 14px rgba(13,16,48,.8)}
-.path p{font-size:.98rem;color:rgba(240,246,249,.88)}
-.path p + p{margin-top:.55rem}
-.path .note{font-size:.85rem;color:rgba(240,246,249,.62)}
+.path{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:26rem;border-radius:20px;overflow:hidden;border:1px solid rgba(255,138,61,.42);box-shadow:0 0 24px rgba(255,138,61,.14);background-size:cover;background-position:center}
+.path.gate{background-image:linear-gradient(190deg,rgba(13,16,48,0) 18%,rgba(13,16,48,.62) 48%,rgba(9,11,32,.96) 72%),url('assets/card-festival.jpg')}
+.path[data-path="home"]{background-image:linear-gradient(190deg,rgba(13,16,48,0) 18%,rgba(13,16,48,.62) 48%,rgba(9,11,32,.96) 72%),url('assets/card-home.jpg')}
+.path-body{padding:1.6rem 1.6rem 1.7rem}
+.path-badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);border:1px solid rgba(0,185,155,.45);background:rgba(0,185,155,.1);border-radius:999px;padding:.3rem .8rem;margin-bottom:.9rem}
+.path-badge.scarce{color:var(--solar);border-color:rgba(251,205,102,.5);background:rgba(251,205,102,.1)}
+.path h3{font-size:clamp(1.35rem,2.6vw,1.7rem);margin-bottom:.9rem;text-shadow:0 1px 14px rgba(13,16,48,.85)}
+.path-list{list-style:none;margin:0 0 1.4rem;display:flex;flex-direction:column;gap:.5rem}
+.path-list li{display:flex;align-items:flex-start;gap:.6rem;font-size:.95rem;line-height:1.35;color:rgba(240,246,249,.92)}
+.tick{width:16px;height:16px;flex:none;margin-top:.18rem;color:var(--teal)}
+.path-cta{display:block;text-align:center;width:100%;padding:.85rem 1rem;font-size:1rem}
+.path .note{font-size:.8rem;color:rgba(240,246,249,.6);margin-top:.75rem;text-align:center}
 .offer .cta-row{display:flex;flex-direction:column;align-items:center;gap:.8rem;margin-top:2.6rem}
 .batch{font-size:.92rem;color:var(--dim);text-align:center}
 
@@ -301,10 +315,14 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
 </section>
 
 <!-- BREAK AUTOPILOT -->
-<section class="autopilot block">
-  <div class="wrap">
-    <span class="kicker">Felt everywhere</span>
-    <h2>Break autopilot. Be present.</h2>
+<section class="autopilot">
+  <img class="auto-bg" src="assets/autopilot-hand.jpg" alt="A hand wearing the gold Pulse ring raised toward a total eclipse above an Icelandic glacier valley" width="1152" height="2048">
+  <div class="auto-veil" aria-hidden="true"></div>
+  <div class="wrap auto-inner">
+    <p class="auto-lock">
+      <span class="lock-a">Break autopilot</span>
+      <span class="lock-b">Be present together.</span>
+    </p>
     <p class="lead">Thousands of hands united by one pulse.</p>
   </div>
 </section>
@@ -367,12 +385,11 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
       <div class="cycle-vid-bg" aria-hidden="true">
         <video class="cycle-video" src="assets/cycle-eclipse.mp4" autoplay muted loop playsinline preload="metadata" aria-label="A total eclipse blazing over dark mountains while a gold ring sends ripples across water"></video>
       </div>
-      <div class="cycle-spacer"></div>
       <h2>Every pulse brings you back.</h2>
       <div class="cycle-cards">
-        <div class="beat-card"><div class="beat cb1"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="9.5" opacity=".45"/></svg><span>Pulse</span>A gentle vibration finds you.</div></div>
-        <div class="beat-card"><div class="beat cb2"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M9.5 7.5v9M14.5 7.5v9"/></svg><span>Pause</span>One breath, right where you are.</div></div>
-        <div class="beat-card"><div class="beat cb3"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h3.5L9 6.5l4 11 2.5-5.5H21"/></svg><span>Practice</span>Presence becomes rhythm.</div></div>
+        <div class="beat-card bc-left"><div class="beat cb1"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="9.5" opacity=".45"/></svg><span>Pulse</span>A gentle vibration finds you.</div></div>
+        <div class="beat-card bc-right"><div class="beat cb2"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M9.5 7.5v9M14.5 7.5v9"/></svg><span>Pause</span>One breath, right where you are.</div></div>
+        <div class="beat-card bc-bottom"><div class="beat cb3"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h3.5L9 6.5l4 11 2.5-5.5H21"/></svg><span>Practice</span>Presence becomes rhythm.</div></div>
       </div>
     </div>
   </div>
@@ -519,20 +536,33 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
     <div class="chip-row"><span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#00b99b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Eclipse offer applied · $100 off</span></div>
     <div class="paths-grid" id="paths">
       <div class="path gate" data-path="gate">
-        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 3 20h18L12 4Z"/><path d="M12 13l-3.5 7M12 13l3.5 7"/></svg>
-        <h3>Pulse in person</h3>
-        <p>Reserve now, pick up on site. $100 off.</p>
-        <p class="note">200 rings travel to the festival. We can't restock on the peninsula.</p>
+        <div class="path-body">
+          <span class="path-badge scarce">Only 200 on site</span>
+          <h3>Pulse in person</h3>
+          <ul class="path-list">
+            <li><svg class="tick" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Reserve now, collect at the gate</li>
+            <li><svg class="tick" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Wear it for totality on August 12</li>
+            <li><svg class="tick" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>$100 off, applied automatically</li>
+          </ul>
+          <a class="cta buy path-cta" href="https://pulsemindfulness.com/?discount=ECLIPSE100">Reserve my ring</a>
+          <p class="note">No restock on the peninsula.</p>
+        </div>
       </div>
       <div class="path" data-path="home">
-        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11 12 4l8 7"/><path d="M6 10v9h12v-9"/></svg>
-        <h3>Pulse at home</h3>
-        <p>Delivered, same $100 off. Second day delivery is our gift.</p>
-        <p class="note">Order by August 7 to wear it for the transmission. After that it arrives as your integration companion.</p>
+        <div class="path-body">
+          <span class="path-badge">Free 2-day delivery</span>
+          <h3>Pulse at home</h3>
+          <ul class="path-list">
+            <li><svg class="tick" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Delivered free, second day</li>
+            <li><svg class="tick" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Order by August 7 to wear it live</li>
+            <li><svg class="tick" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>$100 off, applied automatically</li>
+          </ul>
+          <a class="cta buy path-cta" href="https://pulsemindfulness.com/?discount=ECLIPSE100">Ship my ring</a>
+          <p class="note">After August 7 it arrives as your integration companion.</p>
+        </div>
       </div>
     </div>
     <div class="cta-row">
-      <a class="cta buy" href="https://pulsemindfulness.com/?discount=ECLIPSE100">Get my ring · $100 off <span class="cta-timer" id="cta-timer"></span></a>
       <p class="batch">Rings remaining in this release: <b id="rings-left">1,482</b><!-- TODO (dev owner TBD): wire to live inventory count -->. Ordering closes October 1.</p>
     </div>
   </div>
@@ -970,6 +1000,17 @@ if(cyv){
       cyv.style.transform='translateY('+((p-.5)*10).toFixed(2)+'%)';
     });
   }
+}
+
+/* Autopilot hero — parallax drift */
+const autoBg=document.querySelector('.auto-bg');
+if(autoBg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  onScrollFrame(function(){
+    const r=autoBg.parentElement.getBoundingClientRect();
+    if(r.bottom<-80||r.top>innerHeight+80) return;
+    const p=(innerHeight-r.top)/(innerHeight+r.height);
+    autoBg.style.transform='translateY('+((p-.5)*-58).toFixed(1)+'px) scale(1.14)';
+  });
 }
 
 /* Final video only decodes while on screen */
