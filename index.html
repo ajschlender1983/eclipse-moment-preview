@@ -111,22 +111,23 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 .frame{border-radius:18px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.5);border:1px solid rgba(240,246,249,.12);position:relative}
 
 /* the ring — the pulse cycle traced on the real eclipse */
-.ring{background:var(--midnight);text-align:center}
+.ring{background:radial-gradient(90% 70% at 15% 10%, rgba(73,41,145,.28), transparent 65%), radial-gradient(70% 60% at 85% 80%, rgba(244,39,137,.12), transparent 70%), var(--midnight);text-align:center}
 .cycle-photo{position:relative;width:100vw;margin-left:calc(50% - 50vw);overflow:hidden}
 .cycle-img{position:relative}
+.cycle-img::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(180deg,transparent,#0b0a16);pointer-events:none}
 .cycle-img img{width:100%;height:auto;display:block}
 .corona-trace{position:absolute;left:42.86%;top:8.46%;width:15%;aspect-ratio:1;overflow:visible}
 .orbit2{animation:orbitSpin 8s linear infinite;transform-origin:100px 100px}
 @keyframes orbitSpin{to{transform:rotate(360deg)}}
-.cycle-copy{position:absolute;left:50%;top:40%;transform:translateX(-50%);width:min(88%,620px);z-index:2}
+.cycle-copy{position:absolute;left:50%;top:33%;transform:translateX(-50%);width:min(88%,620px);z-index:2}
 .cycle-copy h2{font-size:clamp(1.5rem,3.8vw,2.6rem);text-shadow:0 2px 26px rgba(0,0,0,.85)}
 .cycle-sub{font-size:clamp(.92rem,1.8vw,1.1rem);color:rgba(240,246,249,.88);margin-top:.7rem;text-shadow:0 1px 16px rgba(0,0,0,.9)}
 @media (max-width:700px){.cycle-copy{position:static;transform:none;width:92%;margin:0 auto;padding:1.3rem 0 1.1rem}}
 .cycle-beats{position:absolute;inset:0;z-index:2;pointer-events:none}
 .cycle-beats .beat{position:absolute;transform:translate(-50%,-50%);width:clamp(8.5rem,15vw,12rem)}
-.cb1{left:50.4%;top:7%}
-.cb2{left:67.5%;top:30%}
-.cb3{left:33.3%;top:30%}
+.cb1{left:22%;top:56%}
+.cb2{left:50%;top:71%}
+.cb3{left:78%;top:56%}
 @media (max-width:860px){.cycle-beats{position:static;display:flex;justify-content:center;flex-wrap:wrap;gap:1.2rem;padding:1.6rem 5% 1.9rem}.cycle-beats .beat{position:static;transform:none}}
 .beat{font-size:clamp(.78rem,1.5vw,.98rem);line-height:1.35;font-weight:500;animation:beatGlow 8s ease-in-out infinite;text-shadow:0 1px 14px rgba(0,0,0,.92)}
 .cb2{animation-delay:2.667s}
@@ -141,15 +142,17 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 .kicker{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:1rem}
 .integration p{margin-top:1.1rem}
 .integration .cta{margin-top:2rem}
+.integration .watch-link{margin-left:1.4rem}
 
 /* journey — Iceland → the water altar → the hand → the world */
-.journey{height:640vh;position:relative;background:#000}
-.journey-sticky{position:sticky;top:0;height:100vh;overflow:hidden}
+.journey{height:640vh;position:relative;background:#0b0a16}
+.journey-sticky{position:sticky;top:0;height:100vh;overflow:hidden;background:radial-gradient(70% 55% at 25% 22%, rgba(73,41,145,.30), transparent 68%), radial-gradient(60% 50% at 78% 72%, rgba(244,39,137,.16), transparent 70%), #0b0a16}
 /* the moment — planetary alignment, for whoever is watching */
 .moment{position:relative;background:var(--volcanic);padding:clamp(4.5rem,10vw,8rem) 0}
 .moment-inner{max-width:760px;text-align:center}
 .moment-inner .lead{margin:1.2rem auto 0;max-width:52ch;color:rgba(240,246,249,.82)}
 .moment-inner h2{margin-top:.7rem}
+.moment-tag{font-size:clamp(1.35rem,2.8vw,1.9rem);font-weight:700;color:var(--solar);margin-top:1.8rem;letter-spacing:-.01em}
 .moment-close{color:var(--glacier)!important;font-weight:500}
 .moment-stats{display:flex;justify-content:center;gap:clamp(1.4rem,6vw,4rem);flex-wrap:wrap;margin-top:2.6rem;padding-top:1.9rem;border-top:1px solid rgba(240,246,249,.14)}
 .moment-stats b{display:block;font-size:clamp(1.3rem,3vw,1.9rem);color:var(--solar);font-weight:700;line-height:1.1}
@@ -166,7 +169,6 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 .j-lines{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(92%,760px);text-align:center;pointer-events:none;z-index:4}
 .j-lines span{display:block;position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);opacity:0;font-size:clamp(2.1rem,6vw,4.2rem);font-weight:700;letter-spacing:-.02em;line-height:1.05;text-shadow:0 3px 44px rgba(0,0,0,.92);will-change:opacity,transform}
 .j-lines span[data-l="3"]{color:var(--solar)}
-
 
 /* testimonials */
 .testis{background:linear-gradient(180deg,#000,var(--volcanic))}
@@ -315,8 +317,9 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
     <span class="kicker">August 12 · 17:47 UTC · two minutes</span>
     <h2>The moment the planet looks up.</h2>
     <p class="lead">The moon covers the sun over the North Atlantic. Day turns to dusk, the birds go quiet, and everyone standing in that shadow feels the same thing at the same second.</p>
-    <p class="lead">In Iceland, fifteen hundred people sit in fifteen rings around a water altar, facing inward while the earth, the moon and the sun come into a line. Fifteen musicians, an eighteen-voice choir, twelve drummers. Forty-five minutes of music that builds, then stops.</p>
-    <p class="lead moment-close">Alignments like this are how a species remembers it is one. For two minutes, nobody is anywhere else.</p>
+    <p class="lead">In Iceland, fifteen hundred people sit in fifteen rings around a water altar, facing inward while the earth, the moon and the sun come into a line. Forty-five minutes of ceremonial music builds, then stops.</p>
+    <p class="lead moment-close">Alignments like this are inflection points. A species remembers it is one, and something in you turns toward your own life.</p>
+    <p class="moment-tag">Two minutes of silence, together.</p>
     <div class="moment-stats">
       <div><b>1,500</b><span>in the circle</span></div>
       <div><b>15</b><span>rings, facing in</span></div>
@@ -343,13 +346,28 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
 </section>
 
 <!-- THE RING -->
-<section class="ring block">
+
+<section class="integration block" id="closing">
+  <div class="wrap closing-grid">
+    <div>
+      <span class="kicker">Integration day · The closing circle · August 13</span>
+      <h2>Every pulse, a reminder.</h2>
+      <p class="lead">Beneath the eclipse, you promise yourself something. Softer with your kids. Present at dinner. Here for your one life.</p>
+      <p class="lead">Most promises fade by Tuesday. Yours comes home on your finger.</p>
+      <p class="lead">The festival closes the circle with a Pulse ritual in the Garden. Rings up. One breath, together. The transmission carries it home.</p>
+      <a class="cta buy" href="https://pulsemindfulness.com/?discount=ECLIPSE100">Get my ring</a>
+      <a class="watch-link" href="#rsvp">RSVP for the transmission</a>
+    </div>
+    <div class="frame"><img src="assets/closing-circle.jpg" alt="A facilitator faces the camera before the candle-lit rings of the ceremony mandala, beside a video call grid of people at home holding up their rings and smiling" width="2752" height="1536" loading="lazy" decoding="async"></div>
+  </div>
+</section>
+
+<section class="ring block" style="padding-bottom:0">
   <div class="wrap">
     <div class="cycle-photo">
       <div class="cycle-copy">
         <h2>One pulse brings you back.</h2>
-        <p class="cycle-sub">Gentle nudges, at the perfect time.</p>
-      </div>
+              </div>
       <div class="cycle-img">
         <img src="assets/cycle-eclipse.jpg" alt="A total eclipse over a dark valley, its corona glowing above a gold ring sending ripples across the ground" width="1280" height="720" loading="lazy" decoding="async">
         <svg class="corona-trace" viewBox="0 0 200 200" aria-hidden="true">
@@ -368,32 +386,6 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
       <div class="beat cb3"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h3.5L9 6.5l4 11 2.5-5.5H21"/></svg><span>Practice</span>Presence becomes rhythm.</div>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="integration block">
-  <div class="wrap">
-    <div>
-      <span class="kicker">Integration day · August 13</span>
-      <h2>Every pulse, a reminder.</h2>
-      <p class="lead">Beneath the eclipse, you promise yourself something. Softer with your kids. Present at dinner. Here for your one life.</p>
-      <p class="lead">Most promises fade by Tuesday. Yours comes home on your finger.</p>
-      <p class="lead">A felt reminder. The perfect nudge when you need it.</p>
-      <a class="cta buy" href="https://pulsemindfulness.com/?discount=ECLIPSE100">Get my ring</a>
-    </div>
-  </div>
-</section>
-
-<section class="closing block" id="closing">
-  <div class="wrap closing-grid">
-    <div>
-      <span class="kicker">The closing circle</span>
-      <h2>Close the circle with us.</h2>
-      <p class="lead">The festival ends with a Pulse ritual in the Garden. The transmission carries it home.</p>
-      <p class="lead">Rings up. One breath, together.</p>
-      <a class="watch-link" href="#rsvp">RSVP for the transmission</a>
-    </div>
-    <div class="frame"><img src="assets/closing-circle.jpg" alt="A facilitator faces the camera before the candle-lit rings of the ceremony mandala, beside a video call grid of people at home holding up their rings and smiling" width="2752" height="1536" loading="lazy" decoding="async"></div>
   </div>
 </section>
 
@@ -836,7 +828,7 @@ if(iceC&&typeof ICE_DOTS!=='undefined'){
     const gridAsp=ICE_COLS/ICE_ROWS;
     let w=iceW*0.74; let h=w/gridAsp;
     if(h>iceH*0.62){h=iceH*0.62;w=h*gridAsp;}
-    const ox=(iceW-w)/2, oy=(iceH-h)/2;
+    const ox=iceW/2-ICE_SNAEF[0]*w, oy=iceH/2-ICE_SNAEF[1]*h;
     window.__iceGeo={ox,oy,w,h};
     window.__iceDot={x:(ox+ICE_SNAEF[0]*w)/iceW, y:(oy+ICE_SNAEF[1]*h)/iceH};
     const dpr2=Math.min(1.5,devicePixelRatio||1);
