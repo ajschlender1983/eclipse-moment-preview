@@ -110,17 +110,23 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 .final::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--volcanic) 0%,rgba(23,23,29,.55) 30%,rgba(23,23,29,.55) 70%,rgba(23,23,29,.9) 100%);z-index:-1}
 .frame{border-radius:18px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.5);border:1px solid rgba(240,246,249,.12);position:relative}
 
+/* break autopilot — text band under the invite */
+.autopilot{background:linear-gradient(180deg,var(--volcanic),#101226);text-align:center}
+.autopilot .lead{margin:1.1rem auto 0}
+
 /* the ring — every pulse, on the living eclipse */
 .ring{background:linear-gradient(180deg,rgba(11,10,22,0) 78%,#0b0a16 100%), radial-gradient(90% 70% at 15% 10%, rgba(73,41,145,.28), transparent 65%), radial-gradient(70% 60% at 85% 80%, rgba(244,39,137,.12), transparent 70%), var(--midnight);text-align:center}
-.cycle-flow{display:flex;flex-direction:column;align-items:center;gap:1.5rem}
-.cycle-flow h2{font-size:clamp(1.7rem,4vw,2.8rem);margin-bottom:.4rem}
+.cycle-stage{position:relative;width:min(92vw,520px);margin:0 auto}
+.cycle-vid-bg{position:absolute;left:0;top:0;width:100%;aspect-ratio:9/16;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(180deg,#000 45%,rgba(0,0,0,.55) 68%,transparent 96%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(180deg,#000 45%,rgba(0,0,0,.55) 68%,transparent 96%);mask-composite:intersect}
+.cycle-stage h2{position:relative;z-index:2;font-size:clamp(1.6rem,3.6vw,2.4rem);text-shadow:0 2px 30px rgba(0,0,0,.9);margin-bottom:1.3rem}
+.cycle-spacer{padding-top:50%}
+.cycle-cards{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:1rem;padding-bottom:.5rem}
 .beat-card{background:rgba(13,16,48,.6);border:1px solid rgba(255,138,61,.5);box-shadow:0 0 20px rgba(255,138,61,.16), inset 0 0 0 1px rgba(251,205,102,.08);border-radius:16px;padding:1.05rem 1.7rem;width:min(88vw,21rem)}
 .beat{font-size:clamp(.9rem,1.6vw,1.02rem);line-height:1.4;font-weight:500;animation:beatGlow 8s ease-in-out infinite}
 .cb2{animation-delay:2.667s}
 .cb3{animation-delay:5.333s}
 @keyframes beatGlow{0%,2%{filter:brightness(1.5)}10%,100%{filter:brightness(1)}}
 .beat span{display:block;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--solar);margin-bottom:.35rem;font-weight:700}
-.cycle-vid-wrap{position:relative;width:min(92vw,480px);aspect-ratio:9/16;overflow:hidden;margin:.4rem 0;-webkit-mask-image:radial-gradient(120% 100% at 50% 50%, #000 55%, transparent 98%);mask-image:radial-gradient(120% 100% at 50% 50%, #000 55%, transparent 98%)}
 .cycle-video{position:absolute;left:0;top:-6%;width:100%;height:112%;object-fit:cover;will-change:transform}
 
 /* integration */
@@ -155,10 +161,10 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 .j-glow{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(255,247,224,.9),rgba(251,205,102,.55) 55%,rgba(251,205,102,.25) 100%);opacity:0;will-change:opacity}
 .j-lines{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(92%,760px);text-align:center;pointer-events:none;z-index:4}
 .j-lines span{display:block;position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);opacity:0;font-size:clamp(2.1rem,6vw,4.2rem);font-weight:700;letter-spacing:-.02em;line-height:1.05;text-shadow:0 3px 44px rgba(0,0,0,.92);will-change:opacity,transform}
-.j-lines span[data-l="3"]{color:var(--solar)}
+.j-lines span[data-l="3"]{color:var(--solar);top:calc(50% + min(23.5vw,270px) + 2.8rem)}
 
 /* testimonials */
-.testis{position:relative;z-index:6;margin-top:-45vh;background:radial-gradient(75% 60% at 30% 8%, rgba(73,41,145,.32), transparent 65%), radial-gradient(55% 45% at 82% 55%, rgba(244,39,137,.13), transparent 70%), linear-gradient(180deg,#0b0a16,var(--volcanic))}
+.testis{position:relative;z-index:6;margin-top:-42vh;background:radial-gradient(75% 60% at 30% 34%, rgba(73,41,145,.30), transparent 65%), radial-gradient(55% 45% at 82% 62%, rgba(244,39,137,.13), transparent 70%), linear-gradient(180deg, rgba(11,10,22,0) 0, rgba(11,10,22,.72) 14vh, #0b0a16 30vh, var(--volcanic) 100%)}
 .testi-head{text-align:center;max-width:34ch;margin:0 auto}
 .tcar-wrap{position:relative;margin-top:2.6rem}
 .tcar{display:flex;gap:1.1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:.2rem .2rem 1rem;scrollbar-width:none}
@@ -178,14 +184,11 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 @media (max-width:700px){.tcar-btn{display:none}}
 
 /* montage — everyone feeling the pulse together */
-.montage{background:var(--volcanic);overflow:hidden}
-.montage .intro{text-align:center;max-width:60ch;margin:0 auto}
-.montage .intro .lead{margin:1.1rem auto 0}
-.collage-wrap{position:relative;margin-top:3rem;border-radius:20px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.5)}
+.collage-wrap{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.5)}
 .collage{width:100%;display:block;transform:scale(1.1);transform-origin:center 60%;will-change:transform}
 .collage-pulse{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 50% 48%,rgba(251,205,102,.2),transparent 72%);animation:collagePulse 8s ease-in-out infinite}
 @keyframes collagePulse{0%,84%,100%{opacity:.06}90%{opacity:1}96%{opacity:.2}}
-.montage .outro{text-align:center;margin-top:2.4rem;font-size:clamp(1.02rem,2vw,1.2rem);color:var(--dim)}
+.outro{text-align:center;margin-top:2.4rem;font-size:clamp(1.02rem,2vw,1.2rem);color:var(--dim)}
 @media (max-width:760px){
 }
 
@@ -297,6 +300,15 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
   </div>
 </section>
 
+<!-- BREAK AUTOPILOT -->
+<section class="autopilot block">
+  <div class="wrap">
+    <span class="kicker">Felt everywhere</span>
+    <h2>Break autopilot. Be present.</h2>
+    <p class="lead">Thousands of hands united by one pulse.</p>
+  </div>
+</section>
+
 <!-- LIVE BROADCAST -->
 <!-- THE MOMENT -->
 <section class="moment">
@@ -351,14 +363,17 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
 
 <section class="ring block">
   <div class="wrap">
-    <div class="cycle-flow">
-      <h2>Every pulse brings you back.</h2>
-      <div class="beat-card"><div class="beat cb1"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="9.5" opacity=".45"/></svg><span>Pulse</span>A gentle vibration finds you.</div></div>
-      <div class="cycle-vid-wrap">
+    <div class="cycle-stage">
+      <div class="cycle-vid-bg" aria-hidden="true">
         <video class="cycle-video" src="assets/cycle-eclipse.mp4" autoplay muted loop playsinline preload="metadata" aria-label="A total eclipse blazing over dark mountains while a gold ring sends ripples across water"></video>
       </div>
-      <div class="beat-card"><div class="beat cb2"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M9.5 7.5v9M14.5 7.5v9"/></svg><span>Pause</span>One breath, right where you are.</div></div>
-      <div class="beat-card"><div class="beat cb3"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h3.5L9 6.5l4 11 2.5-5.5H21"/></svg><span>Practice</span>Presence becomes rhythm.</div></div>
+      <div class="cycle-spacer"></div>
+      <h2>Every pulse brings you back.</h2>
+      <div class="cycle-cards">
+        <div class="beat-card"><div class="beat cb1"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="9.5" opacity=".45"/></svg><span>Pulse</span>A gentle vibration finds you.</div></div>
+        <div class="beat-card"><div class="beat cb2"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M9.5 7.5v9M14.5 7.5v9"/></svg><span>Pause</span>One breath, right where you are.</div></div>
+        <div class="beat-card"><div class="beat cb3"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h3.5L9 6.5l4 11 2.5-5.5H21"/></svg><span>Practice</span>Presence becomes rhythm.</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -439,8 +454,7 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
 <section class="testis block" id="community">
   <div class="wrap">
     <div class="testi-head">
-      <span class="kicker">Let&rsquo;s be present together</span>
-      <h2>Join the Pulse community.</h2>
+      <h2>Join the community.</h2>
     </div>
     <div class="tcar-wrap">
       <button class="tcar-btn prev" aria-label="Previous testimonials" type="button">&#8592;</button>
@@ -493,24 +507,15 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
   </div>
 </section>
 
-<section class="montage block">
+
+<section class="offer block" id="offer">
   <div class="wrap">
-    <div class="intro">
-      <span class="kicker">Felt everywhere</span>
-      <h2>Break autopilot. Be present.</h2>
-      <p class="lead">Thousands of hands united by one pulse.</p>
-    </div>
     <div class="collage-wrap">
       <img class="collage" src="assets/collage.jpg" alt="A layered collage: an elder, a woman with closed eyes, a young man at golden hour, a mother with her toddler, and a couple touching fingertips, every hand wearing the Pulse ring with gold ripples weaving between them" width="2752" height="1536" loading="lazy" decoding="async">
       <div class="collage-pulse" aria-hidden="true"></div>
     </div>
     <p class="outro">When it pulses, everyone returns at once.</p>
-  </div>
-</section>
-
-<section class="offer block" id="offer">
-  <div class="wrap">
-    <h2>Two ways to get your ring</h2>
+    <h2 style="margin-top:3rem">Two ways to get your ring</h2>
     <div class="chip-row"><span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#00b99b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Eclipse offer applied · $100 off</span></div>
     <div class="paths-grid" id="paths">
       <div class="path gate" data-path="gate">
