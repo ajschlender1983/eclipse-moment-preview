@@ -154,7 +154,7 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 .moment-stats{display:flex;justify-content:center;gap:clamp(1.4rem,6vw,4rem);flex-wrap:wrap;margin-top:2.6rem;padding-top:1.9rem;border-top:1px solid rgba(240,246,249,.14)}
 .moment-stats b{display:block;font-size:clamp(1.3rem,3vw,1.9rem);color:var(--solar);font-weight:700;line-height:1.1}
 .moment-stats span{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
-.j-aerial{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:50% 37%;will-change:transform,opacity}
+.j-aerial{position:absolute;inset:0;width:100%;height:100%;will-change:transform,opacity}
 .j-trod2{position:absolute;left:50%;top:50%;width:120vmin;aspect-ratio:1;transform:translate(-50%,-50%);opacity:0;will-change:transform,opacity}
 .j-trod2 svg{width:100%;height:100%;display:block}
 #worldmap{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(94vw,1080px);aspect-ratio:2/1;opacity:0;will-change:opacity}
@@ -171,16 +171,22 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 /* testimonials */
 .testis{background:linear-gradient(180deg,#000,var(--volcanic))}
 .testi-head{text-align:center;max-width:34ch;margin:0 auto}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.8rem}
-.testi{border:1px solid rgba(240,246,249,.13);border-radius:18px;padding:1.8rem 1.6rem;background:linear-gradient(180deg,rgba(13,16,48,.55),rgba(23,23,29,.7));display:flex;flex-direction:column}
-.testi img{width:64px;height:64px;border-radius:50%;object-fit:cover;margin-bottom:1.1rem;border:1px solid rgba(251,205,102,.32)}
-.testi blockquote{font-size:clamp(1.02rem,1.9vw,1.18rem);font-weight:700;line-height:1.35}
-.testi p{margin-top:.85rem;font-size:.9rem;color:var(--dim);flex:1}
-.testi figcaption{margin-top:1.2rem;padding-top:1rem;border-top:1px solid rgba(240,246,249,.1)}
-.testi figcaption b{display:block;font-size:.95rem;color:var(--glacier);font-weight:700}
-.testi figcaption span{display:block;margin-top:.15rem;font-size:.78rem;color:var(--dim)}
-@media (max-width:900px){.testi-grid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:640px){.testi-grid{grid-template-columns:1fr}}
+.tcar-wrap{position:relative;margin-top:2.6rem}
+.tcar{display:flex;gap:1.1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:.2rem .2rem 1rem;scrollbar-width:none}
+.tcar::-webkit-scrollbar{display:none}
+.tcard{flex:0 0 min(78vw,340px);aspect-ratio:3/4;scroll-snap-align:center;border-radius:18px;overflow:hidden;background-size:cover;background-position:top center;border:1px solid rgba(240,246,249,.14);display:flex;align-items:flex-end;position:relative}
+.tcard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,16,48,0) 30%,rgba(11,13,32,.62) 55%,rgba(9,10,24,.96) 100%)}
+.tcard-copy{position:relative;z-index:2;padding:1.15rem 1.15rem 1.2rem}
+.tcard blockquote{font-size:1.02rem;font-weight:700;line-height:1.32;text-shadow:0 1px 14px rgba(0,0,0,.8)}
+.tcard p{margin-top:.55rem;font-size:.8rem;line-height:1.42;color:rgba(240,246,249,.78)}
+.tcard figcaption{margin-top:.8rem;padding-top:.7rem;border-top:1px solid rgba(240,246,249,.18)}
+.tcard figcaption b{display:block;font-size:.92rem;color:var(--solar)}
+.tcard figcaption span{display:block;margin-top:.1rem;font-size:.72rem;letter-spacing:.04em;color:var(--dim)}
+.tcar-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:44px;height:44px;border-radius:50%;border:1px solid rgba(251,205,102,.5);background:rgba(23,23,29,.72);backdrop-filter:blur(6px);color:var(--solar);font-size:1.1rem;cursor:pointer;transition:background .2s}
+.tcar-btn:hover{background:rgba(251,205,102,.18)}
+.tcar-btn.prev{left:-10px}
+.tcar-btn.next{right:-10px}
+@media (max-width:700px){.tcar-btn{display:none}}
 
 /* montage — everyone feeling the pulse together */
 .montage{background:var(--volcanic);overflow:hidden}
@@ -397,7 +403,7 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
 <section class="journey" id="journey">
   <div class="journey-sticky">
     <canvas id="worldmap" aria-label="A dotted world map: the pulse radiates from Iceland to five hundred wearers everywhere"></canvas>
-    <img class="j-aerial" src="assets/aerial-iceland.jpg" alt="" aria-hidden="true">
+    <canvas class="j-aerial" id="icelandmap" aria-hidden="true"></canvas>
     <div class="j-trod2" aria-hidden="true">
       <svg viewBox="0 0 640 640">
         <defs>
@@ -473,43 +479,53 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
       <span class="kicker">Let&rsquo;s be present together</span>
       <h2>Join the Pulse community.</h2>
     </div>
-    <div class="testi-grid">
-      <figure class="testi">
-        <img src="assets/people/vex-king.jpg" alt="Vex King" width="400" height="400" loading="lazy" decoding="async">
-        <blockquote>&ldquo;Stillness holds countless answers, clarity, and a deep sense of peace.&rdquo;</blockquote>
-        <p>Each calming vibration from The Pulse Ring gently guides you away from the noise of the world, helping you reconnect with yourself, right here, in the present moment.</p>
-        <figcaption><b>Vex King</b><span>No.1 Sunday Times bestselling author</span></figcaption>
-      </figure>
-      <figure class="testi">
-        <img src="assets/people/cory-allen.jpg" alt="Cory Allen" width="400" height="400" loading="lazy" decoding="async">
-        <blockquote>&ldquo;The biggest challenge people face is remembering to be present.&rdquo;</blockquote>
-        <p>As someone who has taught millions of people how to live mindfully, I can tell you that the biggest challenge people face is remembering to be present when they are already distracted.</p>
-        <figcaption><b>Cory Allen</b><span>Mindfulness author &amp; podcaster</span></figcaption>
-      </figure>
-      <figure class="testi">
-        <img src="assets/people/alex-elle.jpg" alt="Alex Elle" width="400" height="400" loading="lazy" decoding="async">
-        <blockquote>&ldquo;A grounding reminder to slow down, breathe, and truly be where my feet are.&rdquo;</blockquote>
-        <p>As a woman, mother, and wife with ADHD, each gentle vibration from this beautifully designed ring serves as a grounding reminder to slow down, breathe, and truly be where my feet are.</p>
-        <figcaption><b>Alex Elle</b><span>NYT bestselling author</span></figcaption>
-      </figure>
-      <figure class="testi">
-        <img src="assets/people/kelly-smith.jpg" alt="Kelly Smith" width="400" height="400" loading="lazy" decoding="async">
-        <blockquote>&ldquo;Mindfulness isn't found once a day.&rdquo;</blockquote>
-        <p>The magic of mindfulness isn't found once a day, but is found in all of the small moments that are often forgotten or passed by while our minds are elsewhere.</p>
-        <figcaption><b>Kelly Smith</b><span>Yoga &amp; meditation teacher</span></figcaption>
-      </figure>
-      <figure class="testi">
-        <img src="assets/people/jon-prince.jpg" alt="Jon Prince" width="400" height="400" loading="lazy" decoding="async">
-        <blockquote>&ldquo;Not only helpful. Essential.&rdquo;</blockquote>
-        <p>It's easy to get distracted in today's modern world, so having a simple tool to help you stay grounded, present and focused on your intentions is not only helpful, it is essential.</p>
-        <figcaption><b>Jon Prince</b><span>Self-awareness coach &amp; speaker</span></figcaption>
-      </figure>
-      <figure class="testi">
-        <img src="assets/people/katharina-minwegen.jpg" alt="Katharina Minwegen" width="400" height="400" loading="lazy" decoding="async">
-        <blockquote>&ldquo;The vibration alone instantly brings a sense of calm.&rdquo;</blockquote>
-        <p>I began by taking three deep breaths every time the Pulse Ring vibrated. Now, the unique vibration alone instantly brings a sense of calm.</p>
-        <figcaption><b>Katharina Minwegen</b><span>Mindfulness expert &amp; life coach</span></figcaption>
-      </figure>
+    <div class="tcar-wrap">
+      <button class="tcar-btn prev" aria-label="Previous testimonials" type="button">&#8592;</button>
+      <div class="tcar" id="tcar">
+        <figure class="tcard" style="background-image:url('assets/people/vex-king-card.jpg')">
+          <div class="tcard-copy">
+            <blockquote>&ldquo;Stillness holds countless answers, clarity, and a deep sense of peace.&rdquo;</blockquote>
+            <p>Each calming vibration gently guides you away from the noise of the world, helping you reconnect with yourself, right here, in the present moment.</p>
+            <figcaption><b>Vex King</b><span>No.1 Sunday Times bestselling author</span></figcaption>
+          </div>
+        </figure>
+        <figure class="tcard" style="background-image:url('assets/people/cory-allen-card.jpg')">
+          <div class="tcard-copy">
+            <blockquote>&ldquo;The biggest challenge people face is remembering to be present.&rdquo;</blockquote>
+            <p>As someone who has taught millions of people how to live mindfully, I can tell you the biggest challenge is remembering to be present when you are already distracted.</p>
+            <figcaption><b>Cory Allen</b><span>Mindfulness author &amp; podcaster</span></figcaption>
+          </div>
+        </figure>
+        <figure class="tcard" style="background-image:url('assets/people/alex-elle-card.jpg')">
+          <div class="tcard-copy">
+            <blockquote>&ldquo;A grounding reminder to be where my feet are.&rdquo;</blockquote>
+            <p>As a woman, mother, and wife with ADHD, each gentle vibration from this beautifully designed ring serves as a grounding reminder to slow down, breathe, and truly be where my feet are.</p>
+            <figcaption><b>Alex Elle</b><span>NYT bestselling author</span></figcaption>
+          </div>
+        </figure>
+        <figure class="tcard" style="background-image:url('assets/people/kelly-smith-card.jpg')">
+          <div class="tcard-copy">
+            <blockquote>&ldquo;Mindfulness isn't found once a day.&rdquo;</blockquote>
+            <p>The magic of mindfulness is found in all of the small moments that are often forgotten or passed by while our minds are elsewhere.</p>
+            <figcaption><b>Kelly Smith</b><span>Yoga &amp; meditation teacher</span></figcaption>
+          </div>
+        </figure>
+        <figure class="tcard" style="background-image:url('assets/people/jon-prince-card.jpg')">
+          <div class="tcard-copy">
+            <blockquote>&ldquo;Not only helpful. Essential.&rdquo;</blockquote>
+            <p>It's easy to get distracted in today's modern world. A simple tool that keeps you grounded, present and focused on your intentions is essential.</p>
+            <figcaption><b>Jon Prince</b><span>Self-awareness coach &amp; speaker</span></figcaption>
+          </div>
+        </figure>
+        <figure class="tcard" style="background-image:url('assets/people/katharina-minwegen-card.jpg')">
+          <div class="tcard-copy">
+            <blockquote>&ldquo;The vibration alone instantly brings a sense of calm.&rdquo;</blockquote>
+            <p>I began by taking three deep breaths every time the ring vibrated. Now, the unique vibration alone instantly brings a sense of calm.</p>
+            <figcaption><b>Katharina Minwegen</b><span>Mindfulness expert &amp; life coach</span></figcaption>
+          </div>
+        </figure>
+      </div>
+      <button class="tcar-btn next" aria-label="More testimonials" type="button">&#8594;</button>
     </div>
   </div>
 </section>
@@ -620,6 +636,7 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
 </div>
 
 <script src="assets/worldgrid.js"></script>
+<script src="assets/icelandgrid.js"></script>
 <script>
 /* Page phases: pre-eclipse -> integration -> ordering close.
    One clock in the hero; copy elsewhere follows the phase. */
@@ -765,6 +782,14 @@ if(oneBreak){
   }
 }
 
+/* Testimonial carousel arrows */
+const tcar=document.getElementById('tcar');
+if(tcar){
+  const step=()=>Math.min(720,tcar.clientWidth*.8);
+  document.querySelector('.tcar-btn.prev').addEventListener('click',()=>tcar.scrollBy({left:-step(),behavior:'smooth'}));
+  document.querySelector('.tcar-btn.next').addEventListener('click',()=>tcar.scrollBy({left:step(),behavior:'smooth'}));
+}
+
 /* Hero parallax — the ring drifts behind the text */
 const heroBg=document.querySelector('.hero-bg');
 if(heroBg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
@@ -785,7 +810,56 @@ if(collage&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
   })},{passive:true});
 }
 
-/* Journey — hand in Iceland → altar ripple → the whole world */
+/* Illustrated Iceland — dotted island, Snæfellsnes glowing */
+const iceC=document.getElementById('icelandmap');
+if(iceC&&typeof ICE_DOTS!=='undefined'){
+  const ictx=iceC.getContext('2d');
+  let iceW=0,iceH=0;
+  function iceLayout(){
+    const dpr=Math.min(2,devicePixelRatio||1);
+    iceW=iceC.clientWidth; iceH=iceC.clientHeight;
+    iceC.width=iceW*dpr; iceC.height=iceH*dpr;
+    ictx.setTransform(dpr,0,0,dpr,0,0);
+    const gridAsp=ICE_COLS/ICE_ROWS;
+    let w=iceW*0.74; let h=w/gridAsp;
+    if(h>iceH*0.62){h=iceH*0.62;w=h*gridAsp;}
+    const ox=(iceW-w)/2, oy=(iceH-h)/2;
+    window.__iceGeo={ox,oy,w,h};
+    window.__iceDot={x:(ox+ICE_SNAEF[0]*w)/iceW, y:(oy+ICE_SNAEF[1]*h)/iceH};
+  }
+  function iceDraw(t){
+    const g=window.__iceGeo; if(!g)return;
+    ictx.clearRect(0,0,iceW,iceH);
+    const cell=g.w/ICE_COLS, r=Math.max(1.1,cell*0.26);
+    ictx.fillStyle='rgba(251,205,102,.30)';
+    for(const [c,rw] of ICE_DOTS){
+      ictx.beginPath();
+      ictx.arc(g.ox+(c+.5)*cell, g.oy+(rw+.5)*(g.h/ICE_ROWS), r, 0, 6.2832);
+      ictx.fill();
+    }
+    const sx=g.ox+ICE_SNAEF[0]*g.w, sy=g.oy+ICE_SNAEF[1]*g.h;
+    const ph=(t/8000)%1;
+    for(let k=0;k<2;k++){
+      const q=(ph+k*0.5)%1;
+      ictx.strokeStyle='rgba(251,205,102,'+(0.5*(1-q)).toFixed(3)+')';
+      ictx.lineWidth=1.6;
+      ictx.beginPath(); ictx.arc(sx,sy,6+q*Math.min(iceW,iceH)*0.22,0,6.2832); ictx.stroke();
+    }
+    const gr=ictx.createRadialGradient(sx,sy,0,sx,sy,26);
+    gr.addColorStop(0,'rgba(255,247,224,.95)');gr.addColorStop(.4,'rgba(251,205,102,.6)');gr.addColorStop(1,'rgba(251,205,102,0)');
+    ictx.fillStyle=gr; ictx.beginPath(); ictx.arc(sx,sy,26,0,6.2832); ictx.fill();
+    ictx.fillStyle='#fff7e0'; ictx.beginPath(); ictx.arc(sx,sy,3.4,0,6.2832); ictx.fill();
+  }
+  iceLayout();
+  addEventListener('resize',iceLayout,{passive:true});
+  (function iceLoop(t){
+    const r=iceC.getBoundingClientRect();
+    if(r.bottom>0&&r.top<innerHeight&&+getComputedStyle(iceC).opacity>0.01) iceDraw(t||0);
+    requestAnimationFrame(iceLoop);
+  })(0);
+}
+
+/* Journey — Iceland → altar ripple → the whole world */
 const jSec=document.querySelector('.journey');
 if(jSec&&wm){
   const jZoom=jSec.querySelector('.j-zoom'), jRings=jSec.querySelector('.j-rings'),
@@ -809,10 +883,8 @@ if(jSec&&wm){
     const aQ=clamp01(p/.185);
     const aS=lerp(1,2.9,Math.pow(aQ,1.6));
     let atx=0, aty=0;
-    if(jAerial.naturalWidth){
-      const cs=Math.max(innerWidth/jAerial.naturalWidth, innerHeight/jAerial.naturalHeight);
-      const px=(innerWidth-jAerial.naturalWidth*cs)/2 + 0.6910*jAerial.naturalWidth*cs;
-      const py=(innerHeight-jAerial.naturalHeight*cs)/2 + 0.7547*jAerial.naturalHeight*cs;
+    if(window.__iceDot){
+      const px=window.__iceDot.x*innerWidth, py=window.__iceDot.y*innerHeight;
       jAerial.style.transformOrigin=px.toFixed(1)+'px '+py.toFixed(1)+'px';
       atx=(innerWidth/2-px)*aQ; aty=(innerHeight/2-py)*aQ;
     }
