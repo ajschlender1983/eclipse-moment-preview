@@ -101,6 +101,14 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 
 /* closing circle */
 .closing{background:var(--midnight)}
+.ritual{display:flex;align-items:flex-start;gap:1rem;margin:1.9rem 0 1.2rem;flex-wrap:wrap}
+.ritual-step{flex:1 1 12rem;min-width:11rem;border:1px solid rgba(255,138,61,.42);box-shadow:0 0 18px rgba(255,138,61,.12);border-radius:16px;padding:1.1rem 1.1rem 1.2rem;background:rgba(13,16,48,.42)}
+.ritual-icn{width:38px;height:38px;color:var(--solar);display:block;margin-bottom:.75rem}
+.ritual-step b{display:block;font-size:1rem;margin-bottom:.4rem}
+.ritual-step span{display:block;font-size:.86rem;line-height:1.42;color:rgba(240,246,249,.7)}
+.ritual-arrow{flex:0 0 auto;align-self:center;width:40px;color:var(--solar);opacity:.55}
+@media (max-width:560px){.ritual-arrow{transform:rotate(90deg);align-self:center;margin:.1rem auto}}
+.ritual-close{font-size:.95rem;color:rgba(240,246,249,.78);margin-bottom:1.6rem}
 .closing-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
 .closing p{margin-top:1.1rem}
 
@@ -170,7 +178,7 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 .j-glow{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(255,247,224,.9),rgba(251,205,102,.55) 55%,rgba(251,205,102,.25) 100%);opacity:0;will-change:opacity}
 .j-lines{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(92%,760px);text-align:center;pointer-events:none;z-index:4}
 .j-lines span{display:block;position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);opacity:0;font-size:clamp(2.1rem,6vw,4.2rem);font-weight:700;letter-spacing:-.02em;line-height:1.05;text-shadow:0 3px 44px rgba(0,0,0,.92);will-change:opacity,transform}
-.j-lines span[data-l="3"]{color:var(--solar);top:calc(50% + min(23.5vw,270px) + 2.8rem)}
+.j-lines span[data-l="2"]{color:var(--solar);top:calc(50% + min(23.5vw,270px) + 2.8rem)}
 
 /* testimonials */
 .testis{position:relative;z-index:6;margin-top:-42vh;background:radial-gradient(75% 60% at 30% 34%, rgba(73,41,145,.30), transparent 65%), radial-gradient(55% 45% at 82% 62%, rgba(244,39,137,.13), transparent 70%), linear-gradient(180deg, rgba(11,10,22,0) 0, rgba(11,10,22,.72) 14vh, #0b0a16 30vh, var(--volcanic) 100%)}
@@ -371,7 +379,35 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
       <h2>Every pulse, a reminder.</h2>
       <p class="lead">Beneath the eclipse, you promise yourself something. Softer with your kids. Present at dinner. Here for your one life.</p>
       <p class="lead">Most promises fade by Tuesday. Yours comes home on your finger.</p>
-      <p class="lead">The festival closes the circle with a Pulse ritual in the Garden. Rings up. One breath, together. The transmission carries it home.</p>
+      <p class="lead">The festival closes the circle with a Pulse ritual in the Garden. Rings up. One breath, together.</p>
+
+      <div class="ritual">
+        <div class="ritual-step">
+          <svg class="ritual-icn" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+            <circle cx="22" cy="22" r="3.4" fill="currentColor"/>
+            <circle cx="22" cy="22" r="9" stroke="currentColor" stroke-width="1.5" opacity=".65"/>
+            <circle cx="22" cy="22" r="15" stroke="currentColor" stroke-width="1.5" opacity=".38"/>
+            <circle cx="22" cy="22" r="20.5" stroke="currentColor" stroke-width="1.5" opacity=".18"/>
+          </svg>
+          <b>Share your Pulse moments</b>
+          <span>What you noticed when the ring found you. Said out loud, into the circle.</span>
+        </div>
+        <div class="ritual-arrow" aria-hidden="true">
+          <svg viewBox="0 0 40 12" fill="none"><path d="M0 6h34M29 1.5 34.5 6 29 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="ritual-step">
+          <svg class="ritual-icn" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+            <circle cx="22" cy="22" r="20.5" stroke="currentColor" stroke-width="1.5" opacity=".22" stroke-dasharray="2 5"/>
+            <ellipse cx="22" cy="22" rx="8.4" ry="10.6" stroke="currentColor" stroke-width="2.4"/>
+            <path d="M22 5.5v5M22 33.5v5M5.5 22h5M33.5 22h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+          </svg>
+          <b>Make your commitment</b>
+          <span>One promise to yourself, witnessed by everyone in the circle and everyone watching.</span>
+        </div>
+      </div>
+
+      <p class="ritual-close">Then the ring carries it. Every pulse after is the circle, checking in.</p>
+
       <a class="cta buy" href="https://pulsemindfulness.com/?discount=ECLIPSE100">Get my ring</a>
       <a class="watch-link" href="#rsvp">RSVP for the transmission</a>
     </div>
@@ -458,11 +494,10 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
       </svg>
       <div class="j-photo"><img src="assets/eclipse-hand.jpg" alt=""><div class="j-glow"></div></div>
     </div>
-    <p class="j-lines" aria-label="One moment. One family. One intention. One pulse.">
-      <span data-l="0">One moment.</span>
-      <span data-l="1">One family.</span>
-      <span data-l="2">One intention.</span>
-      <span data-l="3">One pulse.</span>
+    <p class="j-lines" aria-label="One pulse. One promise. I'm here for it.">
+      <span data-l="0">One pulse.</span>
+      <span data-l="1">One promise.</span>
+      <span data-l="2">I&rsquo;m here for it.</span>
     </p>
   </div>
 </section>
@@ -947,7 +982,7 @@ if(jSec&&wm){
     /* D: zoom out — the world appears, the wave lights the nodes */
     wm.style.opacity=clamp01((p-.68)/.16).toFixed(3);
     /* E: one line at a time — the last one lands on the whole world */
-    const WIN=[[.03,.10,.17,.23],[.24,.31,.38,.44],[.48,.55,.62,.68],[.74,.82,9,9]];
+    const WIN=[[.04,.12,.26,.33],[.36,.44,.62,.69],[.72,.81,9,9]];
     jLines.forEach(function(el,i){
       const w=WIN[i];
       const o=clamp01((p-w[0])/(w[1]-w[0])) * (w[2]>1?1:(1-clamp01((p-w[2])/(w[3]-w[2]))));
