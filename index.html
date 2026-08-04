@@ -122,8 +122,6 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 .beat span{display:block;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--solar);margin-bottom:.35rem;font-weight:700}
 .cycle-vid-wrap{position:relative;width:min(92vw,480px);aspect-ratio:9/16;overflow:hidden;margin:.4rem 0;-webkit-mask-image:radial-gradient(120% 100% at 50% 50%, #000 55%, transparent 98%);mask-image:radial-gradient(120% 100% at 50% 50%, #000 55%, transparent 98%)}
 .cycle-video{position:absolute;left:0;top:-6%;width:100%;height:112%;object-fit:cover;will-change:transform}
-.vid-sound{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);z-index:2;font:inherit;font-size:.8rem;letter-spacing:.08em;color:var(--glacier);background:rgba(23,23,29,.72);border:1px solid rgba(251,205,102,.5);border-radius:999px;padding:.42rem 1.1rem;cursor:pointer}
-.vid-sound.on{opacity:0;pointer-events:none;transition:opacity .4s}
 
 /* integration */
 .integration{background:linear-gradient(180deg,var(--midnight),var(--volcanic))}
@@ -160,7 +158,7 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 .j-lines span[data-l="3"]{color:var(--solar)}
 
 /* testimonials */
-.testis{background:radial-gradient(75% 60% at 30% 8%, rgba(73,41,145,.32), transparent 65%), radial-gradient(55% 45% at 82% 55%, rgba(244,39,137,.13), transparent 70%), linear-gradient(180deg,#0b0a16,var(--volcanic))}
+.testis{position:relative;z-index:6;margin-top:-45vh;background:radial-gradient(75% 60% at 30% 8%, rgba(73,41,145,.32), transparent 65%), radial-gradient(55% 45% at 82% 55%, rgba(244,39,137,.13), transparent 70%), linear-gradient(180deg,#0b0a16,var(--volcanic))}
 .testi-head{text-align:center;max-width:34ch;margin:0 auto}
 .tcar-wrap{position:relative;margin-top:2.6rem}
 .tcar{display:flex;gap:1.1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:.2rem .2rem 1rem;scrollbar-width:none}
@@ -357,8 +355,7 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
       <h2>Every pulse brings you back.</h2>
       <div class="beat-card"><div class="beat cb1"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="9.5" opacity=".45"/></svg><span>Pulse</span>A gentle vibration finds you.</div></div>
       <div class="cycle-vid-wrap">
-        <video class="cycle-video" src="assets/cycle-eclipse.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Johan, founder of Pulse, introducing the ring"></video>
-        <button class="vid-sound" type="button" aria-label="Toggle sound">Tap for sound</button>
+        <video class="cycle-video" src="assets/cycle-eclipse.mp4" autoplay muted loop playsinline preload="metadata" aria-label="A total eclipse blazing over dark mountains while a gold ring sends ripples across water"></video>
       </div>
       <div class="beat-card"><div class="beat cb2"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M9.5 7.5v9M14.5 7.5v9"/></svg><span>Pause</span>One breath, right where you are.</div></div>
       <div class="beat-card"><div class="beat cb3"><svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h3.5L9 6.5l4 11 2.5-5.5H21"/></svg><span>Practice</span>Presence becomes rhythm.</div></div>
@@ -956,13 +953,9 @@ if('IntersectionObserver' in window){
   new IntersectionObserver(e=>{finalSeen=e[0].isIntersecting;update()},{threshold:.2}).observe(offer);
 }
 
-/* Cycle video — parallax drift + pause offscreen + tap for sound */
+/* Cycle video — parallax drift + pause offscreen */
 const cyv=document.querySelector('.cycle-video');
 if(cyv){
-  const sndBtn=document.querySelector('.vid-sound');
-  function sndToggle(){cyv.muted=!cyv.muted; sndBtn.classList.toggle('on',!cyv.muted); sndBtn.textContent=cyv.muted?'Tap for sound':'';}
-  sndBtn.addEventListener('click',sndToggle);
-  cyv.addEventListener('click',sndToggle);
   new IntersectionObserver(function(e){ if(e[0].isIntersecting){cyv.play().catch(function(){})}else{cyv.pause()} },{rootMargin:'120px'}).observe(cyv);
   if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
     onScrollFrame(function(){
