@@ -164,6 +164,21 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 .moment-inner h2{margin-top:.7rem}
 .moment-tag{font-size:clamp(1.35rem,2.8vw,1.9rem);font-weight:700;color:var(--solar);margin-top:1.8rem;letter-spacing:-.01em}
 .moment-close{color:var(--glacier)!important;font-weight:500}
+.lookup{margin:2.8rem 0 2.2rem}
+.lookup-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}
+.lookup-turn{grid-template-columns:1fr 1.62fr;margin-top:.7rem}
+.lu{position:relative;border-radius:12px;overflow:hidden;border:1px solid rgba(240,246,249,.1);opacity:0;transform:translateY(14px);transition:opacity .8s ease,transform .8s ease,filter .8s ease}
+.lu img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:16/9}
+.lu-cool{filter:saturate(.55) brightness(.82)}
+.lookup.seen .lu{opacity:1;transform:none}
+.lookup.seen .lu:nth-child(2){transition-delay:.1s}
+.lookup.seen .lu:nth-child(3){transition-delay:.2s}
+.lookup.seen .lookup-turn .lu{transition-delay:.42s}
+.lookup.seen .lookup-turn .lu:nth-child(2){transition-delay:.55s}
+.lookup-cap{font-size:.95rem;color:var(--dim);text-align:center;margin:.95rem 0 .2rem;letter-spacing:.01em}
+.lookup-cap-warm{color:var(--solar);font-weight:500;margin-top:1.05rem}
+@media (max-width:640px){.lookup-row{grid-template-columns:1fr 1fr}.lookup-row .lu:nth-child(3){display:none}.lookup-turn{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.lu{opacity:1;transform:none}}
 .moment-stats{display:flex;justify-content:center;gap:clamp(1.4rem,6vw,4rem);flex-wrap:wrap;margin-top:2.6rem;padding-top:1.9rem;border-top:1px solid rgba(240,246,249,.14)}
 .moment-stats b{display:block;font-size:clamp(1.3rem,3vw,1.9rem);color:var(--solar);font-weight:700;line-height:1.1}
 .moment-stats span{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
@@ -344,6 +359,20 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
     <p class="lead">The moon covers the sun over the North Atlantic. Day turns to dusk, the birds go quiet, and everyone standing in that shadow feels the same thing at the same second.</p>
     <p class="lead">In Iceland, fifteen hundred people sit in fifteen rings around a water altar, facing inward while the earth, the moon and the sun come into a line. Forty-five minutes of ceremonial music builds, then stops.</p>
     <p class="lead moment-close">Alignments like this are inflection points. A species remembers it is one, and something in you turns toward your own life.</p>
+    <div class="lookup" aria-label="Illustrated sequence: heads-down days, then a crowd looking up together">
+      <div class="lookup-row">
+        <figure class="lu lu-cool"><img src="assets/world/w1.jpg" alt="A commuter train at dusk, every face lit by its own phone" width="1100" height="619" loading="lazy" decoding="async"></figure>
+        <figure class="lu lu-cool"><img src="assets/world/w2.jpg" alt="An evening living room lit only by phone glow" width="1100" height="619" loading="lazy" decoding="async"></figure>
+        <figure class="lu lu-cool"><img src="assets/world/w3.jpg" alt="A woman at a desk dissolving at the edges into grey static" width="1100" height="619" loading="lazy" decoding="async"></figure>
+      </div>
+      <p class="lookup-cap">Most days, we are somewhere else.</p>
+      <div class="lookup-row lookup-turn">
+        <figure class="lu"><img src="assets/world/w4.jpg" alt="A commuter looking up from her phone, warmth returning to her face" width="1100" height="619" loading="lazy" decoding="async"></figure>
+        <figure class="lu lu-wide"><img src="assets/world/w5.jpg" alt="A quiet crowd watching a honey dawn together" width="1100" height="619" loading="lazy" decoding="async"></figure>
+      </div>
+      <p class="lookup-cap lookup-cap-warm">On August 12, everyone looks up at once.</p>
+    </div>
+
     <p class="moment-tag">Two minutes of silence, together.</p>
     <div class="moment-stats">
       <div><b>1,500</b><span>in the circle</span></div>
@@ -812,6 +841,14 @@ function _runScroll(){_stk=false;for(let i=0;i<SCROLL_FNS.length;i++)SCROLL_FNS[
 function _reqScroll(){if(!_stk){_stk=true;requestAnimationFrame(_runScroll)}}
 addEventListener('scroll',_reqScroll,{passive:true});
 addEventListener('resize',_reqScroll,{passive:true});
+
+/* Look-up sequence: cool frames, then the turn */
+const lookup=document.querySelector('.lookup');
+if(lookup){
+  new IntersectionObserver(function(es,ob){
+    if(es[0].isIntersecting){lookup.classList.add('seen');ob.disconnect();}
+  },{threshold:.2}).observe(lookup);
+}
 
 /* Page break — reveal the line, drift the circle */
 const oneBreak=document.querySelector('.onebreak');
