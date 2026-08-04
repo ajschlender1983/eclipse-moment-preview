@@ -132,11 +132,11 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 .ring{background:linear-gradient(180deg,rgba(11,10,22,0) 78%,#0b0a16 100%), radial-gradient(90% 70% at 15% 10%, rgba(73,41,145,.28), transparent 65%), radial-gradient(70% 60% at 85% 80%, rgba(244,39,137,.12), transparent 70%), var(--midnight);text-align:center}
 .cycle-stage{position:relative;width:min(92vw,520px);margin:0 auto;aspect-ratio:9/16}
 .cycle-vid-bg{position:absolute;inset:0;overflow:hidden;border-radius:18px}
-.cycle-stage h2{position:absolute;left:50%;top:26%;transform:translate(-50%,-50%);width:94%;z-index:3;font-size:clamp(1.5rem,3.4vw,2.2rem);text-shadow:0 2px 30px rgba(0,0,0,.92)}
+.cycle-stage h2{position:absolute;left:50%;top:35%;transform:translate(-50%,-50%);width:94%;z-index:3;font-size:clamp(1.5rem,3.4vw,2.2rem);text-shadow:0 2px 30px rgba(0,0,0,.92)}
 .cycle-cards{position:absolute;inset:0;z-index:3}
 .beat-card{position:absolute;transform:translate(-50%,-50%);width:min(38%,10.5rem);text-align:center}
-.bc-left{left:21%;top:46%}
-.bc-right{left:79%;top:46%}
+.bc-left{left:21%;top:50%}
+.bc-right{left:79%;top:50%}
 .bc-bottom{left:50%;top:80%;width:min(62%,15rem)}
 
 .beat{font-size:clamp(.82rem,1.5vw,.96rem);text-shadow:0 1px 16px rgba(0,0,0,.95);line-height:1.4;font-weight:500;animation:beatGlow 8s ease-in-out infinite}
@@ -145,6 +145,12 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 @keyframes beatGlow{0%,2%{filter:brightness(1.5)}10%,100%{filter:brightness(1)}}
 .beat span{display:block;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--solar);margin-bottom:.35rem;font-weight:700}
 .cycle-video{position:absolute;left:0;top:-6%;width:100%;height:112%;object-fit:cover;will-change:transform}
+@media (max-width:700px){
+  .ring{padding-top:0;padding-bottom:0}
+  .ring .wrap{width:100%;max-width:none}
+  .cycle-stage{width:100%}
+  .cycle-vid-bg{border-radius:0}
+}
 
 /* integration */
 .integration{background:linear-gradient(180deg,var(--midnight),var(--volcanic))}
