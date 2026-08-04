@@ -145,17 +145,6 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 /* journey — Iceland → the water altar → the hand → the world */
 .journey{height:640vh;position:relative;background:#000}
 .journey-sticky{position:sticky;top:0;height:100vh;overflow:hidden}
-/* page break — the circle, and the line */
-.onebreak{position:relative;height:min(88vh,760px);overflow:hidden;isolation:isolate;display:flex;align-items:center;justify-content:center}
-.onebreak-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;z-index:-2;transform:scale(1.08);will-change:transform}
-.onebreak-veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--volcanic) 0%,rgba(23,23,29,.35) 22%,rgba(13,16,48,.5) 50%,rgba(23,23,29,.4) 78%,var(--volcanic) 100%)}
-.onebreak-line{display:flex;flex-direction:column;gap:.15em;text-align:center;font-size:clamp(2rem,5.6vw,4rem);font-weight:700;letter-spacing:-.02em;line-height:1.06;text-shadow:0 3px 40px rgba(0,0,0,.9)}
-.onebreak-line span{opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s ease}
-.onebreak-line span:nth-child(2){transition-delay:.22s}
-.onebreak-line span:nth-child(3){transition-delay:.44s;color:var(--solar)}
-.onebreak.seen .onebreak-line span{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.onebreak-line span{opacity:1;transform:none}}
-
 /* the moment — planetary alignment, for whoever is watching */
 .moment{position:relative;background:var(--volcanic);padding:clamp(4.5rem,10vw,8rem) 0}
 .moment-inner{max-width:760px;text-align:center}
@@ -174,23 +163,24 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 .j-photo{position:absolute;left:50%;top:50%;width:46vmin;height:46vmin;transform:translate(-50%,-50%);border-radius:50%;overflow:hidden}
 .j-photo img{width:100%;height:100%;object-fit:cover}
 .j-glow{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(255,247,224,.9),rgba(251,205,102,.55) 55%,rgba(251,205,102,.25) 100%);opacity:0;will-change:opacity}
-.journey .map-head{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) translateY(18px);width:min(92%,700px);text-align:center;opacity:0;will-change:opacity,transform;text-shadow:0 2px 26px rgba(0,0,0,.85)}
+.j-lines{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(92%,760px);text-align:center;pointer-events:none;z-index:4}
+.j-lines span{display:block;position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);opacity:0;font-size:clamp(2.1rem,6vw,4.2rem);font-weight:700;letter-spacing:-.02em;line-height:1.05;text-shadow:0 3px 44px rgba(0,0,0,.92);will-change:opacity,transform}
+.j-lines span[data-l="3"]{color:var(--solar)}
 
-/* duo — the relationship of two things */
-.duo{height:280vh;position:relative;background:#000}
-.duo-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.duo-sticky img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform:scale(1.14);will-change:transform}
-.duo-glow{position:absolute;inset:0;background:radial-gradient(ellipse 60% 45% at 50% 50%,rgba(251,205,102,.28),rgba(240,246,249,.06) 55%,transparent 75%);opacity:0;will-change:opacity}
-.duo-line{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) translateY(26px);width:min(90%,22ch);text-align:center;font-size:clamp(1.9rem,4.6vw,3.2rem);font-weight:700;letter-spacing:-.015em;line-height:1.15;opacity:0;text-shadow:0 2px 30px rgba(0,0,0,.85);will-change:opacity,transform}
 
 /* testimonials */
 .testis{background:linear-gradient(180deg,#000,var(--volcanic))}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.4rem}
-.testi{border:1px solid rgba(240,246,249,.13);border-radius:18px;padding:1.8rem 1.6rem;background:linear-gradient(180deg,rgba(13,16,48,.55),rgba(23,23,29,.7))}
-.testi blockquote{font-size:clamp(1.05rem,2vw,1.25rem);font-weight:700;line-height:1.35}
-.testi p{margin-top:.9rem;font-size:.92rem;color:var(--dim)}
-.testi figcaption{margin-top:1.1rem;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--solar);font-weight:700}
-@media (max-width:760px){.testi-grid{grid-template-columns:1fr}}
+.testi-head{text-align:center;max-width:34ch;margin:0 auto}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.8rem}
+.testi{border:1px solid rgba(240,246,249,.13);border-radius:18px;padding:1.8rem 1.6rem;background:linear-gradient(180deg,rgba(13,16,48,.55),rgba(23,23,29,.7));display:flex;flex-direction:column}
+.testi img{width:64px;height:64px;border-radius:50%;object-fit:cover;margin-bottom:1.1rem;border:1px solid rgba(251,205,102,.32)}
+.testi blockquote{font-size:clamp(1.02rem,1.9vw,1.18rem);font-weight:700;line-height:1.35}
+.testi p{margin-top:.85rem;font-size:.9rem;color:var(--dim);flex:1}
+.testi figcaption{margin-top:1.2rem;padding-top:1rem;border-top:1px solid rgba(240,246,249,.1)}
+.testi figcaption b{display:block;font-size:.95rem;color:var(--glacier);font-weight:700}
+.testi figcaption span{display:block;margin-top:.15rem;font-size:.78rem;color:var(--dim)}
+@media (max-width:900px){.testi-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.testi-grid{grid-template-columns:1fr}}
 
 /* montage — everyone feeling the pulse together */
 .montage{background:var(--volcanic);overflow:hidden}
@@ -313,13 +303,6 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
 </section>
 
 <!-- LIVE BROADCAST -->
-<!-- PAGE BREAK — one heart -->
-<section class="onebreak" aria-label="One heart. One family. One intention.">
-  <img class="onebreak-bg" src="assets/ceremony-mandala.jpg" alt="Fifteen rings of people seated around the flowered water altar of the Ceremony Garden, seen from above" width="1800" height="1075">
-  <div class="onebreak-veil" aria-hidden="true"></div>
-  <p class="onebreak-line"><span>One heart.</span><span>One family.</span><span>One intention.</span></p>
-</section>
-
 <!-- THE MOMENT -->
 <section class="moment">
   <div class="wrap moment-inner">
@@ -414,7 +397,7 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
 <section class="journey" id="journey">
   <div class="journey-sticky">
     <canvas id="worldmap" aria-label="A dotted world map: the pulse radiates from Iceland to five hundred wearers everywhere"></canvas>
-    <img class="j-aerial" src="assets/ceremony-mandala.jpg" alt="" aria-hidden="true">
+    <img class="j-aerial" src="assets/aerial-iceland.jpg" alt="" aria-hidden="true">
     <div class="j-trod2" aria-hidden="true">
       <svg viewBox="0 0 640 640">
         <defs>
@@ -472,34 +455,60 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
           <polygon points="507,93 504,106 494,96"/>
         </g>
       </svg>
-      <div class="j-photo"><img src="assets/card-festival.jpg" alt=""><div class="j-glow"></div></div>
+      <div class="j-photo"><img src="assets/eclipse-hand.jpg" alt=""><div class="j-glow"></div></div>
     </div>
-    <div class="map-head">
-      <span class="kicker">Let's be present together</span>
-      <h2>Join the Pulse community.</h2>
-    </div>
+    <p class="j-lines" aria-label="One moment. One family. One intention. One pulse.">
+      <span data-l="0">One moment.</span>
+      <span data-l="1">One family.</span>
+      <span data-l="2">One intention.</span>
+      <span data-l="3">One pulse.</span>
+    </p>
   </div>
 </section>
 
 <!-- TESTIMONIALS — real wearers, from the Loox reviews -->
-<section class="testis block">
+<section class="testis block" id="community">
   <div class="wrap">
-    <span class="kicker" style="display:block;text-align:center">In their words</span>
+    <div class="testi-head">
+      <span class="kicker">Let&rsquo;s be present together</span>
+      <h2>Join the Pulse community.</h2>
+    </div>
     <div class="testi-grid">
       <figure class="testi">
-        <blockquote>&ldquo;After the vibration I returned to really being there with my son.&rdquo;</blockquote>
-        <p>Kicking a football around with my son, my mind started to wander. The ring pulsed, and I returned to really being there with him.</p>
-        <figcaption>Jon Prince</figcaption>
+        <img src="assets/people/vex-king.jpg" alt="Vex King" width="400" height="400" loading="lazy" decoding="async">
+        <blockquote>&ldquo;Stillness holds countless answers, clarity, and a deep sense of peace.&rdquo;</blockquote>
+        <p>Each calming vibration from The Pulse Ring gently guides you away from the noise of the world, helping you reconnect with yourself, right here, in the present moment.</p>
+        <figcaption><b>Vex King</b><span>No.1 Sunday Times bestselling author</span></figcaption>
       </figure>
       <figure class="testi">
-        <blockquote>&ldquo;Pulse brings me back into the moment.&rdquo;</blockquote>
-        <p>Whether that&rsquo;s when I&rsquo;m with a patient as a First Responder, or at home and need to ground myself. A longer breath, and I refocus on what&rsquo;s important.</p>
-        <figcaption>Jonny Vaughan · First Responder</figcaption>
+        <img src="assets/people/cory-allen.jpg" alt="Cory Allen" width="400" height="400" loading="lazy" decoding="async">
+        <blockquote>&ldquo;The biggest challenge people face is remembering to be present.&rdquo;</blockquote>
+        <p>As someone who has taught millions of people how to live mindfully, I can tell you that the biggest challenge people face is remembering to be present when they are already distracted.</p>
+        <figcaption><b>Cory Allen</b><span>Mindfulness author &amp; podcaster</span></figcaption>
       </figure>
       <figure class="testi">
-        <blockquote>&ldquo;I stopped reaching for my phone during deep work.&rdquo;</blockquote>
-        <p>I&rsquo;ve tried every focus tool out there. Pulse is the first one that actually works for me. Like a quiet tap on the shoulder bringing me back.</p>
-        <figcaption>Michal Wroblewski · COO</figcaption>
+        <img src="assets/people/alex-elle.jpg" alt="Alex Elle" width="400" height="400" loading="lazy" decoding="async">
+        <blockquote>&ldquo;A grounding reminder to slow down, breathe, and truly be where my feet are.&rdquo;</blockquote>
+        <p>As a woman, mother, and wife with ADHD, each gentle vibration from this beautifully designed ring serves as a grounding reminder to slow down, breathe, and truly be where my feet are.</p>
+        <figcaption><b>Alex Elle</b><span>NYT bestselling author</span></figcaption>
+      </figure>
+      <figure class="testi">
+        <img src="assets/people/kelly-smith.jpg" alt="Kelly Smith" width="400" height="400" loading="lazy" decoding="async">
+        <blockquote>&ldquo;Mindfulness isn't found once a day.&rdquo;</blockquote>
+        <p>The magic of mindfulness isn't found once a day, but is found in all of the small moments that are often forgotten or passed by while our minds are elsewhere.</p>
+        <figcaption><b>Kelly Smith</b><span>Yoga &amp; meditation teacher</span></figcaption>
+      </figure>
+      <figure class="testi">
+        <img src="assets/people/jon-prince.jpg" alt="Jon Prince" width="400" height="400" loading="lazy" decoding="async">
+        <blockquote>&ldquo;Not only helpful. Essential.&rdquo;</blockquote>
+        <p>It's easy to get distracted in today's modern world, so having a simple tool to help you stay grounded, present and focused on your intentions is not only helpful, it is essential.</p>
+        <figcaption><b>Jon Prince</b><span>Self-awareness coach &amp; speaker</span></figcaption>
+      </figure>
+      <figure class="testi">
+        <img src="assets/people/katharina-minwegen.jpg" alt="Katharina Minwegen" width="400" height="400" loading="lazy" decoding="async">
+        <blockquote>&ldquo;The vibration alone instantly brings a sense of calm.&rdquo;</blockquote>
+        <p>I began by taking three deep breaths every time the Pulse Ring vibrated. Now, the unique vibration alone instantly brings a sense of calm.</p>
+        <figcaption><b>Katharina Minwegen</b><span>Mindfulness expert &amp; life coach</span></figcaption>
       </figure>
     </div>
   </div>
@@ -509,8 +518,8 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
   <div class="wrap">
     <div class="intro">
       <span class="kicker">Felt everywhere</span>
-      <h2>Break autopilot. Be HERE for it.</h2>
-      <p class="lead">Thousands of hands touched, united by one pulse.</p>
+      <h2>Break autopilot. Be present.</h2>
+      <p class="lead">Thousands of hands united by one pulse.</p>
     </div>
     <div class="collage-wrap">
       <img class="collage" src="assets/collage.jpg" alt="A layered collage: an elder, a woman with closed eyes, a young man at golden hour, a mother with her toddler, and a couple touching fingertips, every hand wearing the Pulse ring with gold ripples weaving between them" width="2752" height="1536" loading="lazy" decoding="async">
@@ -520,31 +529,20 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
   </div>
 </section>
 
-<section class="duo" id="duo" aria-label="Two rings, one gold and one silver, floating together">
-  <div class="duo-sticky">
-    <img src="assets/duo-float.jpg" alt="" loading="lazy" decoding="async">
-    <div class="duo-glow" aria-hidden="true"></div>
-    <p class="duo-line" data-step="0">Going to the eclipse?</p>
-    <p class="duo-line" data-step="1">Watching from home?</p>
-    <p class="duo-line" data-step="2">Either way, your ring finds you.</p>
-    <p class="duo-line" data-step="3">One heart, one human family, connecting to the rhythm of life.</p>
-  </div>
-</section>
-
 <section class="offer block" id="offer">
   <div class="wrap">
-    <h2>Where your ring finds you</h2>
+    <h2>Two ways to get your ring</h2>
     <div class="chip-row"><span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#00b99b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Eclipse offer applied · $100 off</span></div>
     <div class="paths-grid" id="paths">
       <div class="path gate" data-path="gate">
         <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4 3 20h18L12 4Z"/><path d="M12 13l-3.5 7M12 13l3.5 7"/></svg>
-        <h3>Going to Snæfellsnes</h3>
+        <h3>Pulse in person</h3>
         <p>Reserve now, pick up on site. $100 off.</p>
         <p class="note">200 rings travel to the festival. We can't restock on the peninsula.</p>
       </div>
       <div class="path" data-path="home">
         <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11 12 4l8 7"/><path d="M6 10v9h12v-9"/></svg>
-        <h3>Staying home</h3>
+        <h3>Pulse at home</h3>
         <p>Delivered, same $100 off. Second day delivery is our gift.</p>
         <p class="note">Order by August 7 to wear it for the transmission. After that it arrives as your integration companion.</p>
       </div>
@@ -791,7 +789,7 @@ if(collage&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
 const jSec=document.querySelector('.journey');
 if(jSec&&wm){
   const jZoom=jSec.querySelector('.j-zoom'), jRings=jSec.querySelector('.j-rings'),
-        jGlow=jSec.querySelector('.j-glow'), jHead=jSec.querySelector('.map-head'),
+        jGlow=jSec.querySelector('.j-glow'), jLines=[...jSec.querySelectorAll('.j-lines span')],
         jReduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const clamp01=v=>Math.min(1,Math.max(0,v));
   const lerp=(a,b,t)=>a+(b-a)*t;
@@ -801,7 +799,7 @@ if(jSec&&wm){
     if(jReduced){
       jZoom.style.display='none'; jAerial.style.display='none'; jTrod2.style.display='none';
       wm.style.opacity=1;
-      jHead.style.opacity=1;jHead.style.transform='translate(-50%,-50%)';
+      jLines.forEach(function(el,i){el.style.opacity=(i===3?1:0);});
       return;
     }
     const r=jSec.getBoundingClientRect();
@@ -813,8 +811,8 @@ if(jSec&&wm){
     let atx=0, aty=0;
     if(jAerial.naturalWidth){
       const cs=Math.max(innerWidth/jAerial.naturalWidth, innerHeight/jAerial.naturalHeight);
-      const px=(innerWidth-jAerial.naturalWidth*cs)/2 + 0.5048*jAerial.naturalWidth*cs;
-      const py=(innerHeight-jAerial.naturalHeight*cs)/2 + 0.4004*jAerial.naturalHeight*cs;
+      const px=(innerWidth-jAerial.naturalWidth*cs)/2 + 0.6910*jAerial.naturalWidth*cs;
+      const py=(innerHeight-jAerial.naturalHeight*cs)/2 + 0.7547*jAerial.naturalHeight*cs;
       jAerial.style.transformOrigin=px.toFixed(1)+'px '+py.toFixed(1)+'px';
       atx=(innerWidth/2-px)*aQ; aty=(innerHeight/2-py)*aQ;
     }
@@ -843,43 +841,22 @@ if(jSec&&wm){
     jGlow.style.opacity=(clamp01((p-.44)/.12)*.9).toFixed(3);
     /* D: zoom out — the world appears, the wave lights the nodes */
     wm.style.opacity=clamp01((p-.68)/.16).toFixed(3);
-    const hp=clamp01((p-.92)/.06);
-    jHead.style.opacity=hp.toFixed(3);
-    jHead.style.transform='translate(-50%,-50%) translateY('+(18*(1-hp)).toFixed(1)+'px)';
+    /* E: one line at a time — the last one lands on the whole world */
+    const WIN=[[.03,.10,.17,.23],[.24,.31,.38,.44],[.48,.55,.62,.68],[.74,.82,9,9]];
+    jLines.forEach(function(el,i){
+      const w=WIN[i];
+      const o=clamp01((p-w[0])/(w[1]-w[0])) * (w[2]>1?1:(1-clamp01((p-w[2])/(w[3]-w[2]))));
+      el.style.opacity=o.toFixed(3);
+      el.style.transform='translateY('+(-50+ (1-o)*2.2).toFixed(2)+'%)';
+    });
   }
   addEventListener('scroll',function(){requestAnimationFrame(jTick)},{passive:true});
   addEventListener('resize',function(){requestAnimationFrame(jTick)},{passive:true});
+  window.__jTick=jTick;
   jTick();
-}
-
-/* Duo scroll sequence — the relationship of two things */
-const duoSec=document.getElementById('duo');
-if(duoSec){
-  const dImg=duoSec.querySelector('img'), dGlow=duoSec.querySelector('.duo-glow'),
-        dLines=[...duoSec.querySelectorAll('.duo-line')],
-        dReduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const dLast=dLines.length-1;
-  const dBands=[[.04,.28],[.28,.52],[.52,.76],[.76,1.01]];
-  function duoTick(){
-    const r=duoSec.getBoundingClientRect();
-    const p=Math.min(1,Math.max(0,-r.top/(r.height-innerHeight)));
-    if(dReduced){dLines.forEach((l,i)=>{l.style.opacity=i===dLast?1:0;l.style.transform='translate(-50%,-50%)'});dGlow.style.opacity=.25;return}
-    dImg.style.transform='scale('+(1.14-.12*p).toFixed(4)+')';
-    dLines.forEach((l,i)=>{
-      const a=dBands[i][0], b=dBands[i][1];
-      let o=0, ty=26;
-      if(p>=a&&p<b){
-        const lp=(p-a)/(b-a);
-        o=lp<.25?lp/.25:(i===dLast?1:(lp>.8?(1-lp)/.2:1));
-        ty=26*(1-Math.min(1,lp/.25));
-      } else if(i===dLast&&p>=b){o=1;ty=0}
-      l.style.opacity=o.toFixed(3);
-      l.style.transform='translate(-50%,-50%) translateY('+ty.toFixed(1)+'px)';
-    });
-    dGlow.style.opacity=p>.76?((p-.76)/.24*.85).toFixed(3):0;
-  }
-  addEventListener('scroll',function(){requestAnimationFrame(duoTick)},{passive:true});
-  duoTick();
+  /* QA: #jp=0.55 loads the journey at that progress */
+  const jpm=location.hash.match(/jp=([\d.]+)/);
+  if(jpm){const go=function(){window.scrollTo({top:jSec.offsetTop+(jSec.offsetHeight-innerHeight)*(+jpm[1]),behavior:'instant'});jTick();};setTimeout(go,300);setTimeout(go,1200);}
 }
 
 /* UTM pre-sort: unify newsletter/FB traffic sees ship-home first */
