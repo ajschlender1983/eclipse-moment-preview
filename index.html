@@ -63,7 +63,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .hero .cta-row{display:flex;flex-direction:column;align-items:center;gap:.75rem;margin-bottom:2.6rem}
 
 /* countdown strip */
-.strip{border-top:1px solid rgba(240,246,249,.16);backdrop-filter:blur(6px);background:rgba(13,16,48,.35)}
+.strip{border-top:1px solid rgba(240,246,249,.16);background:rgba(13,16,48,.72)}
 .strip-inner{width:min(1080px,92%);margin:0 auto;display:flex;justify-content:center;align-items:baseline;gap:1rem;padding:1.05rem 0;flex-wrap:wrap;text-align:center}
 .strip .n{font-size:1.3rem;font-weight:700;color:var(--solar);font-variant-numeric:tabular-nums}
 .strip .l{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
@@ -89,8 +89,8 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 /* broadcast */
 .broadcast{background:linear-gradient(180deg,var(--volcanic),var(--midnight));position:relative;overflow:hidden}
 .trod-cap{font-size:.85rem;color:var(--dim);text-align:center;margin-top:.95rem;letter-spacing:.02em}
-.trod .ripple{animation:trodRipple 8s cubic-bezier(.25,.6,.4,1) infinite}
-@keyframes trodRipple{0%{r:14px;opacity:.75}60%{r:268px;opacity:0}100%{r:268px;opacity:0}}
+.trod .ripple{transform-box:fill-box;transform-origin:center;animation:trodRipple 8s cubic-bezier(.25,.6,.4,1) infinite}
+@keyframes trodRipple{0%{transform:scale(1);opacity:.75}60%,100%{transform:scale(19.1);opacity:0}}
 .broadcast .wrap{max-width:680px}
 .badge{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--aurora);font-weight:700;margin-bottom:1rem}
 .badge .dot{width:9px;height:9px;border-radius:50%;background:var(--aurora);box-shadow:0 0 0 0 rgba(244,39,137,.6);animation:live 1.8s infinite}
@@ -182,7 +182,7 @@ h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:700;letter-spacing:-.015em;lin
 .tcard figcaption{margin-top:.8rem;padding-top:.7rem;border-top:1px solid rgba(240,246,249,.18)}
 .tcard figcaption b{display:block;font-size:.92rem;color:var(--solar)}
 .tcard figcaption span{display:block;margin-top:.1rem;font-size:.72rem;letter-spacing:.04em;color:var(--dim)}
-.tcar-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:44px;height:44px;border-radius:50%;border:1px solid rgba(251,205,102,.5);background:rgba(23,23,29,.72);backdrop-filter:blur(6px);color:var(--solar);font-size:1.1rem;cursor:pointer;transition:background .2s}
+.tcar-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:44px;height:44px;border-radius:50%;border:1px solid rgba(251,205,102,.5);background:rgba(23,23,29,.88);color:var(--solar);font-size:1.1rem;cursor:pointer;transition:background .2s}
 .tcar-btn:hover{background:rgba(251,205,102,.18)}
 .tcar-btn.prev{left:-10px}
 .tcar-btn.next{right:-10px}
@@ -252,7 +252,7 @@ footer{background:var(--midnight);border-top:1px solid rgba(240,246,249,.12);pad
 footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;margin-top:.4rem}
 
 /* sticky mobile bar */
-.sticky-bar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(13,16,48,.92);backdrop-filter:blur(10px);border-top:1px solid rgba(240,246,249,.15);padding:.7rem 1rem;display:none;align-items:center;justify-content:space-between;gap:1rem;transform:translateY(110%);transition:transform .3s ease}
+.sticky-bar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(13,16,48,.97);border-top:1px solid rgba(240,246,249,.15);padding:.7rem 1rem;display:none;align-items:center;justify-content:space-between;gap:1rem;transform:translateY(110%);transition:transform .3s ease}
 .sticky-bar.show{transform:translateY(0)}
 .sticky-bar .off{font-size:.85rem;color:var(--dim)}
 .sticky-bar .off b{color:var(--solar)}
@@ -353,15 +353,12 @@ footer .partner{letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;m
       <div class="cycle-img">
         <img src="assets/cycle-eclipse.jpg" alt="A total eclipse over a dark valley, its corona glowing above a gold ring sending ripples across the ground" width="1280" height="720" loading="lazy" decoding="async">
         <svg class="corona-trace" viewBox="0 0 200 200" aria-hidden="true">
-          <defs>
-            <filter id="ct-soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4.5"/></filter>
-            <filter id="ct-mid" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2"/></filter>
-            <filter id="ct-core" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation=".7"/></filter>
-          </defs>
           <g class="orbit2">
-            <circle cx="100" cy="100" r="88" fill="none" stroke="#fbcd66" stroke-width="16" stroke-linecap="round" pathLength="100" stroke-dasharray="28 72" transform="rotate(-91 100 100)" opacity=".55" filter="url(#ct-soft)"/>
-            <circle cx="100" cy="100" r="87" fill="none" stroke="#ffdf9e" stroke-width="6" stroke-linecap="round" pathLength="100" stroke-dasharray="23 77" transform="rotate(-88 100 100)" opacity=".85" filter="url(#ct-mid)"/>
-            <circle cx="100" cy="100" r="86" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" pathLength="100" stroke-dasharray="17 83" transform="rotate(-86 100 100)" opacity="1" filter="url(#ct-core)"/>
+            <circle cx="100" cy="100" r="88" fill="none" stroke="#fbcd66" stroke-width="20" stroke-linecap="round" pathLength="100" stroke-dasharray="29 71" transform="rotate(-92 100 100)" opacity=".14"/>
+            <circle cx="100" cy="100" r="88" fill="none" stroke="#fbcd66" stroke-width="12" stroke-linecap="round" pathLength="100" stroke-dasharray="28 72" transform="rotate(-91 100 100)" opacity=".28"/>
+            <circle cx="100" cy="100" r="87" fill="none" stroke="#ffdf9e" stroke-width="7" stroke-linecap="round" pathLength="100" stroke-dasharray="25 75" transform="rotate(-89 100 100)" opacity=".45"/>
+            <circle cx="100" cy="100" r="87" fill="none" stroke="#ffdf9e" stroke-width="4" stroke-linecap="round" pathLength="100" stroke-dasharray="23 77" transform="rotate(-88 100 100)" opacity=".7"/>
+            <circle cx="100" cy="100" r="86" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" pathLength="100" stroke-dasharray="17 83" transform="rotate(-86 100 100)" opacity="1"/>
           </g>
         </svg>
       </div>
@@ -710,23 +707,29 @@ if(wm&&typeof WORLD_DOTS!=='undefined'){
   }
   const maxD=nodes.reduce((m,n)=>Math.max(m,n.d),0);
   const wmReduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let wmW=0,wmH=0,wmRun=false;
+  let wmW=0,wmH=0,wmRun=false,wmBase=null;
   function wmSize(){
-    const r=wm.getBoundingClientRect(), dpr=Math.min(2,devicePixelRatio||1);
+    const r=wm.getBoundingClientRect(), dpr=Math.min(1.5,devicePixelRatio||1);
     wmW=r.width; wmH=r.width/2;
     wm.width=Math.round(wmW*dpr); wm.height=Math.round(wmH*dpr);
     wctx.setTransform(dpr,0,0,dpr,0,0);
+    wmBase=document.createElement('canvas');
+    wmBase.width=wm.width; wmBase.height=wm.height;
+    const b=wmBase.getContext('2d');
+    b.setTransform(dpr,0,0,dpr,0,0);
+    const dotR=Math.max(1,wmW/WORLD_COLS*0.2);
+    b.fillStyle='rgba(240,246,249,.10)';
+    for(const d of WORLD_DOTS){
+      b.beginPath();
+      b.arc((d[0]+0.5)/WORLD_COLS*wmW,(d[1]+0.5)/WORLD_ROWS*wmH,dotR,0,6.283);
+      b.fill();
+    }
   }
   function wmDraw(tms){
     const t=(tms/1000)%8, prog=t/8;
     wctx.clearRect(0,0,wmW,wmH);
     const dotR=Math.max(1,wmW/WORLD_COLS*0.2);
-    wctx.fillStyle='rgba(240,246,249,.10)';
-    for(const d of WORLD_DOTS){
-      wctx.beginPath();
-      wctx.arc((d[0]+0.5)/WORLD_COLS*wmW,(d[1]+0.5)/WORLD_ROWS*wmH,dotR,0,6.283);
-      wctx.fill();
-    }
+    if(wmBase)wctx.drawImage(wmBase,0,0,wmW,wmH);
     const front=prog*maxD*1.12, band=maxD*0.16;
     for(const n of nodes){
       const gap=Math.abs(n.d-front);
@@ -765,6 +768,14 @@ if(wm&&typeof WORLD_DOTS!=='undefined'){
   if(wmReduced){wmRun=true;wmDraw(3000)}
 }
 
+/* One scroll scheduler: a single listener, a single rAF, every updater runs once per frame */
+const SCROLL_FNS=[];let _stk=false;
+function onScrollFrame(fn){SCROLL_FNS.push(fn)}
+function _runScroll(){_stk=false;for(let i=0;i<SCROLL_FNS.length;i++)SCROLL_FNS[i]()}
+function _reqScroll(){if(!_stk){_stk=true;requestAnimationFrame(_runScroll)}}
+addEventListener('scroll',_reqScroll,{passive:true});
+addEventListener('resize',_reqScroll,{passive:true});
+
 /* Page break — reveal the line, drift the circle */
 const oneBreak=document.querySelector('.onebreak');
 if(oneBreak){
@@ -773,12 +784,12 @@ if(oneBreak){
     es.forEach(function(e){ if(e.isIntersecting){ oneBreak.classList.add('seen'); } });
   },{threshold:.35}).observe(oneBreak);
   if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
-    addEventListener('scroll',function(){requestAnimationFrame(function(){
+    onScrollFrame(function(){
       const r=oneBreak.getBoundingClientRect();
       if(r.bottom<0||r.top>innerHeight) return;
       const p=(innerHeight-r.top)/(innerHeight+r.height);
       obBg.style.transform='translateY('+((p-.5)*-46).toFixed(1)+'px) scale(1.08)';
-    })},{passive:true});
+    });
   }
 }
 
@@ -794,20 +805,22 @@ if(tcar){
 const heroBg=document.querySelector('.hero-bg');
 if(heroBg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
   heroBg.style.transform='scale(1.12)';
-  addEventListener('scroll',function(){requestAnimationFrame(function(){
+  onScrollFrame(function(){
+    if(window.scrollY>innerHeight+120) return;
     const y=Math.min(window.scrollY,innerHeight);
     heroBg.style.transform='translateY('+(y*.32).toFixed(1)+'px) scale(1.12)';
-  })},{passive:true});
+  });
 }
 
 /* Collage — subjects settle gently as you scroll */
 const collage=document.querySelector('.collage');
 if(collage&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
-  addEventListener('scroll',function(){requestAnimationFrame(function(){
+  onScrollFrame(function(){
     const r=collage.getBoundingClientRect();
+    if(r.bottom<-60||r.top>innerHeight+60) return;
     const p=Math.min(1,Math.max(0,(innerHeight-r.top)/(innerHeight+r.height)));
     collage.style.transform='scale('+(1.12-0.1*p).toFixed(4)+')';
-  })},{passive:true});
+  });
 }
 
 /* Illustrated Iceland — dotted island, Snæfellsnes glowing */
@@ -816,7 +829,7 @@ if(iceC&&typeof ICE_DOTS!=='undefined'){
   const ictx=iceC.getContext('2d');
   let iceW=0,iceH=0;
   function iceLayout(){
-    const dpr=Math.min(2,devicePixelRatio||1);
+    const dpr=Math.min(1.5,devicePixelRatio||1);
     iceW=iceC.clientWidth; iceH=iceC.clientHeight;
     iceC.width=iceW*dpr; iceC.height=iceH*dpr;
     ictx.setTransform(dpr,0,0,dpr,0,0);
@@ -826,17 +839,23 @@ if(iceC&&typeof ICE_DOTS!=='undefined'){
     const ox=(iceW-w)/2, oy=(iceH-h)/2;
     window.__iceGeo={ox,oy,w,h};
     window.__iceDot={x:(ox+ICE_SNAEF[0]*w)/iceW, y:(oy+ICE_SNAEF[1]*h)/iceH};
+    const dpr2=Math.min(1.5,devicePixelRatio||1);
+    window.__iceBase=document.createElement('canvas');
+    window.__iceBase.width=iceC.width; window.__iceBase.height=iceC.height;
+    const bx=window.__iceBase.getContext('2d');
+    bx.setTransform(dpr2,0,0,dpr2,0,0);
+    const cell=w/ICE_COLS, rr=Math.max(1.1,cell*0.26);
+    bx.fillStyle='rgba(251,205,102,.30)';
+    for(const [c,rw] of ICE_DOTS){
+      bx.beginPath();
+      bx.arc(ox+(c+.5)*cell, oy+(rw+.5)*(h/ICE_ROWS), rr, 0, 6.2832);
+      bx.fill();
+    }
   }
   function iceDraw(t){
     const g=window.__iceGeo; if(!g)return;
     ictx.clearRect(0,0,iceW,iceH);
-    const cell=g.w/ICE_COLS, r=Math.max(1.1,cell*0.26);
-    ictx.fillStyle='rgba(251,205,102,.30)';
-    for(const [c,rw] of ICE_DOTS){
-      ictx.beginPath();
-      ictx.arc(g.ox+(c+.5)*cell, g.oy+(rw+.5)*(g.h/ICE_ROWS), r, 0, 6.2832);
-      ictx.fill();
-    }
+    if(window.__iceBase)ictx.drawImage(window.__iceBase,0,0,iceW,iceH);
     const sx=g.ox+ICE_SNAEF[0]*g.w, sy=g.oy+ICE_SNAEF[1]*g.h;
     const ph=(t/8000)%1;
     for(let k=0;k<2;k++){
@@ -852,11 +871,17 @@ if(iceC&&typeof ICE_DOTS!=='undefined'){
   }
   iceLayout();
   addEventListener('resize',iceLayout,{passive:true});
-  (function iceLoop(t){
-    const r=iceC.getBoundingClientRect();
-    if(r.bottom>0&&r.top<innerHeight&&+getComputedStyle(iceC).opacity>0.01) iceDraw(t||0);
+  let iceRun=false;
+  function iceLoop(t){
+    if(!iceRun)return;
+    if((window.__jp||0)<0.3) iceDraw(t||0);
     requestAnimationFrame(iceLoop);
-  })(0);
+  }
+  new IntersectionObserver(function(en){
+    const vis=en[0].isIntersecting;
+    if(vis&&!iceRun){iceRun=true;requestAnimationFrame(iceLoop)}
+    else if(!vis){iceRun=false}
+  },{rootMargin:'80px'}).observe(iceC);
 }
 
 /* Journey — Iceland → altar ripple → the whole world */
@@ -877,7 +902,9 @@ if(jSec&&wm){
       return;
     }
     const r=jSec.getBoundingClientRect();
+    if(r.bottom<-80||r.top>innerHeight+80) return;
     const p=clamp01(-r.top/(r.height-innerHeight));
+    window.__jp=p;
     /* A: the Circle of Tröð from above, diving toward the water altar — altar glides to center.
        The altar sits at (50.5%, 40%) of the image FILE; account for object-fit:cover crop. */
     const aQ=clamp01(p/.185);
@@ -888,12 +915,16 @@ if(jSec&&wm){
       jAerial.style.transformOrigin=px.toFixed(1)+'px '+py.toFixed(1)+'px';
       atx=(innerWidth/2-px)*aQ; aty=(innerHeight/2-py)*aQ;
     }
+    const aO=1-clamp01((p-.2)/.07);
     jAerial.style.transform='translate('+atx.toFixed(1)+'px,'+aty.toFixed(1)+'px) scale('+aS.toFixed(4)+')';
-    jAerial.style.opacity=(1-clamp01((p-.2)/.07)).toFixed(3);
+    jAerial.style.opacity=aO.toFixed(3);
+    jAerial.style.visibility=aO<.01?'hidden':'visible';
     /* B: into the Circle of Tröð, down to the water altar */
     const tS=lerp(.55,6.5,easeIO(clamp01((p-.19)/.31)));
+    const tO=clamp01((p-.19)/.06)*(1-clamp01((p-.45)/.06));
     jTrod2.style.transform='translate(-50%,-50%) scale('+tS.toFixed(4)+')';
-    jTrod2.style.opacity=(clamp01((p-.19)/.06)*(1-clamp01((p-.45)/.06))).toFixed(3);
+    jTrod2.style.opacity=tO.toFixed(3);
+    jTrod2.style.visibility=tO<.01?'hidden':'visible';
     /* C: the altar's light becomes the hand wearing the ring */
     let scale, tx=0, ty=0, zo;
     if(p<=.7){
@@ -909,6 +940,7 @@ if(jSec&&wm){
     }
     jZoom.style.transform='translate('+tx.toFixed(1)+'px,'+ty.toFixed(1)+'px) scale('+scale.toFixed(4)+')';
     jZoom.style.opacity=zo.toFixed(3);
+    jZoom.style.visibility=zo<.01?'hidden':'visible';
     jRings.style.opacity=clamp01((p-.58)/.09).toFixed(3);
     jGlow.style.opacity=(clamp01((p-.44)/.12)*.9).toFixed(3);
     /* D: zoom out — the world appears, the wave lights the nodes */
@@ -922,8 +954,7 @@ if(jSec&&wm){
       el.style.transform='translateY('+(-50+ (1-o)*2.2).toFixed(2)+'%)';
     });
   }
-  addEventListener('scroll',function(){requestAnimationFrame(jTick)},{passive:true});
-  addEventListener('resize',function(){requestAnimationFrame(jTick)},{passive:true});
+  onScrollFrame(jTick);
   window.__jTick=jTick;
   jTick();
   /* QA: #jp=0.55 loads the journey at that progress */
@@ -955,6 +986,12 @@ if('IntersectionObserver' in window){
   new IntersectionObserver(e=>{heroGone=!e[0].isIntersecting;update()},{threshold:.05}).observe(hero);
   new IntersectionObserver(e=>{finalSeen=e[0].isIntersecting;update()},{threshold:.2}).observe(offer);
 }
+
+/* Final video only decodes while on screen */
+const fv=document.querySelector('.final-bg');
+if(fv)new IntersectionObserver(function(e){
+  if(e[0].isIntersecting){fv.play().catch(function(){})}else{fv.pause()}
+},{rootMargin:'100px'}).observe(fv);
 
 /* Watch-live capture: confirmation re-offers the ring.
    TODO (dev owner TBD): point this at the ESP endpoint (Klaviyo/Mailchimp) before Aug 5. */
